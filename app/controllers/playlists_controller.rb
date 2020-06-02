@@ -10,6 +10,9 @@ class PlaylistsController < ApplicationController
     authorize @playlist
   end
 
+  def show
+  end
+
   def create
     @playlist = playlist.new(playlist_params)
     @playlist.user = current_user
