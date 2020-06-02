@@ -1,6 +1,21 @@
 <div class=container>
-<h1>Playlists</h1>
-<% @playlists.order('created_at DESC').each do |playlist| %>
-<%= playlist.name%><%= link_to "Edit",playlist_path(playlist)%><%= link_to "Delete",playlists_destroy_path(playlist)%>
-<% end %>
+  <h1>Playlists</h1>
+  <div class="row row-cols-1 row-cols-md-2">
+    <% @playlists.order('created_at DESC').each do |playlist| %>
+        <div class="col mb-4">
+        <div class="card text-white bg-dark mb-3">
+          <img src="https://source.unsplash.com/random" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= playlist.name %></h5>
+            <%= link_to playlist_path(playlist) do %>
+              <i class="fas fa-edit text-white"></i>
+            <% end %>
+            <%= link_to playlists_destroy_path(playlist), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash destroy_dose text-white"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
