@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :playlists do
     resources :tracks, only: [:destroy, :new, :create, :edit, :update, :index]
   end
-
+  get 'playlists_search', to: 'playlists#search'
 end
