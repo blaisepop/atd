@@ -1,7 +1,7 @@
 <div class=container>
-  <h1>Playlists</h1>
+  <h1><%= current_user.username %>'s Playlists</h1>
   <div class="row row-cols-1 row-cols-md-2">
-    <% @playlists.order('created_at DESC').each do |playlist| %>
+    <% @playlists.each do |playlist| %>
         <div class="col mb-4">
         <div class="card text-white bg-dark mb-3">
           <img src="https://source.unsplash.com/random" class="card-img-top" alt="...">
