@@ -4,7 +4,9 @@
     <% @playlists.each do |playlist| %>
       <div class="col mb-4">
         <div class="card text-white bg-dark mb-3">
-          <img src="https://source.unsplash.com/random" class="card-img-top" alt="...">
+          <%= link_to playlist_path(playlist) do %>
+          <img src="https://source.unsplash.com/FZWivbri0Xk/400x225" class="card-img-top" alt="...">
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= playlist.name %></h5>
             <% if policy(playlist).update? %>
