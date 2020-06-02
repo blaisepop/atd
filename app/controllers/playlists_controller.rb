@@ -3,6 +3,7 @@ class PlaylistsController < ApplicationController
 
   def index
     @playlists = Playlist.all
+
   end
 
   def new
@@ -14,14 +15,14 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @playlist = playlist.new(playlist_params)
+    @playlist = Playlist.new(playlist_params)
     @playlist.user = current_user
     authorize @playlist
-    if @playlist.save!
-      redirect_to playlist_path(@playlist)
-    else
-      render 'new'
-    end
+      if @playlist.save!
+        redirect_to playlists_path
+      else
+        render 'new'
+      end
   end
 
   def update
