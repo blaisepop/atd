@@ -1,7 +1,10 @@
-<h1><%= @playlist.name %></h1>
-<h2><%= @playlist.room_code %></h2>
-<p>by <%= @playlist.user.username %></p>
-<h2>Room code :<span class="badge badge-secondary"><%= @playlist.room_code %></span></h2>
+<div class="d-flex w-100 justify-content-between p-5">
+  <div>
+    <h1><%= @playlist.name %></h1>
+    <p>by <%= @playlist.user.username %></p>
+  </div>
+<h1><span class="badge badge-secondary"><%= @playlist.room_code %></span></h1>
+</div>
   <div class="list-group">
     <% @playlist.tracks.each do |track| %>
       <a href="#" class="list-group-item list-group-item-action">
