@@ -17,6 +17,10 @@ class PlaylistPolicy < ApplicationPolicy
     true
   end
 
+  def search?
+    true
+  end
+
   def destroy?
     record.user == user
   end
