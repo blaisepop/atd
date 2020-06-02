@@ -10,18 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_130127) do
+ActiveRecord::Schema.define(version: 2020_06_02_081531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "djs", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "guests", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -39,11 +31,11 @@ ActiveRecord::Schema.define(version: 2020_06_01_130127) do
 
   create_table "playlists", force: :cascade do |t|
     t.string "name"
-    t.bigint "dj_id", null: false
     t.string "room_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["dj_id"], name: "index_playlists_on_dj_id"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
   create_table "tracks", force: :cascade do |t|
@@ -64,11 +56,12 @@ ActiveRecord::Schema.define(version: 2020_06_01_130127) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "playlist_tracks", "playlists"
   add_foreign_key "playlist_tracks", "tracks"
-  add_foreign_key "playlists", "djs"
+  add_foreign_key "playlists", "users"
 end
