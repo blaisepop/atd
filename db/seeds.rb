@@ -8,28 +8,28 @@
 puts "Destroy all"
 Playlist.destroy_all
 Track.destroy_all
-Dj.destroy_all
+User.destroy_all
 
-puts "Creating Dj's"
-alex = Dj.create!(
+puts "Creating User's"
+alex = User.create!(
   username: "Dj Alex",
   email:      "alex@gmail.com",
   password:   "azerty"
 )
 
-peter = Dj.create!(
+peter = User.create!(
   username: "MC Peter",
   email:      "PeterMC@gmail.com",
   password:   "thebestalive123"
 )
 
-benson = Dj.create!(
-  username: "DJ Benson",
+benson = User.create!(
+  username: "Dj Benson",
   email:      "Benson@gmail.com",
-  password:   "DJKingdom"
+  password:   "UserKingdom"
 )
 
-blaise = Dj.create!(
+blaise = User.create!(
   username: "Musical Maestro",
   email:      "BlaiseP@gmail.com",
   password:   "blaise123"
@@ -39,25 +39,25 @@ puts "Creating playlist"
 playlist = Playlist.create!(
   name: "Party rock",
   room_code: "2020",
-  dj: alex
+  user: alex
 )
 
 playlist1 = Playlist.create!(
   name: "Oldies",
   room_code: "007007",
-  dj: peter
+  user: peter
 )
 
 playlist2 = Playlist.create!(
   name: "Renens Wedding",
   room_code: "929345",
-  dj: benson
+  user: benson
 )
 
 playlist3 = Playlist.create!(
   name: "Sing along",
   room_code: "1112111",
-  dj: blaise
+  user: blaise
 )
 
 puts "Creating tracks"
