@@ -1,27 +1,21 @@
-<div class="container">
 <h1><%= @playlist.name %></h1>
-<h2><%= @playlist.user.username %></h2>
-</div>
-
-
-
-<h2><span class="badge badge-secondary">Room <%= @playlist.room_code %></span></h2>
-
-<div class="list-group">
-  <% @playlist.tracks.each do |track| %>
-    <a href="#" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100">
-        <div class="d-flex w-100 justify-content-between">
-          <div>
-            <h5 class="mb-1"><%= track.title %></h5>
-            <small><%= track.artist %> - <%= track.album %></small>
+<p>by <%= @playlist.user.username %></p>
+<h2>Room code :<span class="badge badge-secondary"><%= @playlist.room_code %></span></h2>
+  <div class="list-group">
+    <% @playlist.tracks.each do |track| %>
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100">
+          <div class="d-flex w-100 justify-content-between">
+            <div>
+              <h5 class="mb-1"><%= track.title %></h5>
+              <small><%= track.artist %> - <%= track.album %></small>
+            </div>
+            <small class="px-3"><%= track.duration.divmod(1000 * 60).first %>:<%= track.duration.divmod(1000 * 60).second/1000 %></small>
           </div>
-          <small class="px-3"><%= track.duration.divmod(1000 * 60).first %>:<%= track.duration.divmod(1000 * 60).second/1000 %></small>
+          <button type="button" class="btn btn-dark">
+            <i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="badge badge-light badge-pill"><%= track.votes %></span>
+          </button>
         </div>
-        <button type="button" class="btn btn-dark">
-          <i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="badge badge-light badge-pill"><%= track.votes %></span>
-        </button>
-      </div>
-    </a>
-  <% end %>
-</div>
+      </a>
+    <% end %>
+  </div>
