@@ -1,5 +1,5 @@
 class TracksController < ApplicationController
-  before_action :set_track, only: %i[destroy edit update]
+  before_action :set_track, only: %i[remove edit update show]
 
   def index
     @tracks = Track.all
@@ -31,10 +31,11 @@ class TracksController < ApplicationController
     redirect_to playlists_path
   end
 
-  def destroy
-    @track.destroy
-    redirect_to playlist_path(@playlist)
+  def remove
+    @playlist_track = PlaylistTrack.where(playlist_id: params[:playlist_id]).where(track_id: params[:id]).first
     authorize @track
+    @playlist_track.destroy
+    redirect_to playlist_path(params[:playlist_id])
   end
 
   private
