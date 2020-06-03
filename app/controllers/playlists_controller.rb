@@ -2,12 +2,7 @@ class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :destroy, :edit, :update]
 
   def index
-    @playlists = Playlist.all
-  end
-
-  def new
-    @playlist = current_user.playlists.new
-    authorize @playlist
+    @playlists = current_user.playlists
   end
 
   def search
@@ -16,13 +11,15 @@ class PlaylistsController < ApplicationController
       #authorize @playlist unless @playlist.nil?
       if @playlist
         authorize @playlist
+        cookies.encrypted[:guest_id] = SecureRandom.uuid
         redirect_to playlist_path(@playlist.id)
       else
         flash[:alert] = "The code you entered does not exist, please ty again."
         redirect_to root_path
       end
     else
-       redirect_to root_path
+        flash[:alert] = "You have not entered a code."
+        redirect_to root_path
     end
   end
 
