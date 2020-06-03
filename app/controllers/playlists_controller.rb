@@ -18,6 +18,7 @@ class PlaylistsController < ApplicationController
         authorize @playlist
         redirect_to playlist_path(@playlist.id)
       else
+        flash[:alert] = "The code you entered does not exist, please ty again."
         redirect_to root_path
       end
     else
