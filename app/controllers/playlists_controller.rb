@@ -24,6 +24,8 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    authorize @playlist
+    @track = Track.new
   end
 
   def new
