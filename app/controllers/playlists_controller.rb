@@ -6,17 +6,13 @@ class PlaylistsController < ApplicationController
     @playlists = current_user.playlists
   end
 
-  def new
-    @playlist = current_user.playlists.new
-    authorize @playlist
-  end
-
   def search
     if params[:query].present?
       @playlist = Playlist.where(room_code: params[:query]).first
       #authorize @playlist unless @playlist.nil?
       if @playlist
         authorize @playlist
+        cookies.encrypted[:guest_id] = SecureRandom.uuid
         redirect_to playlist_path(@playlist.id)
       else
         flash[:alert] = "The code you entered does not exist, please ty again."
@@ -29,6 +25,8 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    authorize @playlist
+    @track = Track.new
   end
 
   def new
