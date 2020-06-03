@@ -22,6 +22,7 @@ class PlaylistsController < ApplicationController
         redirect_to root_path
       end
     else
+        flash[:alert] = "You have not entered a code."
         redirect_to root_path
     end
   end
