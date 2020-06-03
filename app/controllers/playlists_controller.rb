@@ -2,12 +2,7 @@ class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :destroy, :edit, :update]
 
   def index
-    @playlists = Playlist.all
-  end
-
-  def new
-    @playlist = current_user.playlists.new
-    authorize @playlist
+    @playlists = current_user.playlists
   end
 
   def search
@@ -19,14 +14,24 @@ class PlaylistsController < ApplicationController
         cookies.encrypted[:guest_id] = SecureRandom.uuid
         redirect_to playlist_path(@playlist.id)
       else
+        flash[:alert] = "The code you entered does not exist, please ty again."
         redirect_to root_path
       end
     else
+        flash[:alert] = "You have not entered a code."
         redirect_to root_path
     end
   end
 
   def show
+  end
+
+  def new
+    @playlist = current_user.playlists.new
+    @random_num = rand.to_s[2..8]
+    @playlist.room_code = @random_num
+    authorize @playlist
+    @playlist.save!
   end
 
   def create
@@ -53,7 +58,7 @@ class PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:name)
+    params.require(:playlist).permit(:name, :room_code)
   end
 
   def set_playlist
