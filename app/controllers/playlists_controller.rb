@@ -22,11 +22,13 @@ class PlaylistsController < ApplicationController
         redirect_to root_path
       end
     else
-        redirect_to root_path
+       redirect_to root_path
     end
   end
 
   def show
+    authorize @playlist
+    @track = Track.new
   end
 
   def new

@@ -5,6 +5,7 @@
   </div>
 <h1><span class="badge badge-secondary"><%= @playlist.room_code %></span></h1>
 </div>
+<br><%= render "tracks/form"%></br>
   <div class="list-group">
     <% @playlist.tracks.each do |track| %>
       <a href="#" class="list-group-item list-group-item-action">

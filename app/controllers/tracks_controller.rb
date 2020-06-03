@@ -13,9 +13,13 @@ class TracksController < ApplicationController
   end
 
   def create
+    @playlist = Playlist.find(params[:playlist_id])
     @track = Track.new(track_params)
+    @track.playlists << @playlist
+    #same as @track.playlist_tracks << PlaylistTrack.new(playlist: @playlist)
+    authorize @track
     if @track.save!
-      redirect_to playlists_path
+      redirect_to @playlist
     else
       render 'new'
     end
