@@ -1,6 +1,7 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :destroy, :edit, :update]
 
+
   def index
     @playlists = current_user.playlists
   end
@@ -69,4 +70,5 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.find(params[:id])
     authorize @playlist
   end
+  
 end
