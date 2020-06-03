@@ -28,6 +28,14 @@ class PlaylistsController < ApplicationController
   def show
   end
 
+  def new
+    @playlist = current_user.playlists.new
+    @random_num = rand.to_s[2..8]
+    @playlist.room_code = @random_num
+    authorize @playlist
+    @playlist.save!
+  end
+
   def create
     @playlist = Playlist.new(playlist_params)
     @playlist.user = current_user
@@ -52,7 +60,7 @@ class PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:name)
+    params.require(:playlist).permit(:name, :room_code)
   end
 
   def set_playlist
