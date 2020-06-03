@@ -3,10 +3,12 @@
     <h1><%= @playlist.name %></h1>
     <p>by <%= @playlist.user.username %></p>
   </div>
-<h1><span class="badge badge-secondary"><%= @playlist.room_code %></span></h1>
-</div>
-<br><%= render "tracks/form"%></br>
-  <div class="list-group-flush">
+  <h1><span class="badge badge-secondary"><%= @playlist.room_code %></span></h1>
+  </div>
+  <div class="p-3">
+    <%= render "tracks/form"%>
+  </div>
+    <div class="list-group-flush">
     <% @playlist.tracks.each do |track| %>
       <div class="list-group-item list-group-item-action">
         <div class="d-flex w-100">
