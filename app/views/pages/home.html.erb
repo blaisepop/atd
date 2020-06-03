@@ -1,25 +1,14 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.itl.cat/pngfile/big/214-2144712_live-dj-wallpaper-dj-hd-1080p.jpg) ;">
-  <h1 class="header1 text-center"> <strong>Enter Room Code</strong> </h1>
+  <h1 class="header1 text-center"> <strong>Join a room</strong> </h1>
   <div class="search-form-control form-group">
     <%= form_tag playlists_search_path, method: :get do %>
       <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Enter your room code"
-  %>
+      placeholder: "Room code"
+    %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+    <% end %>
   </div>
 </div>
 
-
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-  </div>
-  <div class="footer-copyright">
-   Listen to what you want to hear <i class="fas fa-headphones-alt"></i>
-  </div>
-</div>
