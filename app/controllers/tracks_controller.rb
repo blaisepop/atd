@@ -23,21 +23,24 @@ class TracksController < ApplicationController
 
   def update
     @track.update(track_params)
+    @track.save
     redirect_to playlists_path
   end
 
   def destroy
     @track.destroy
-    redirect_to playlists_path
+    redirect_to playlist_path(@playlist)
+    authorize @track
   end
 
   private
 
   def track_params
-    params.require(:track).permit(:artist, :title, :album, :duration, :votes)
+    params.require(:track).permit(:artist, :title, :album, :duration)
   end
 
   def set_track
-    @track = track.find(params[:id])
+    @track = Track.find(params[:id])
+    authorize @track
   end
 end
