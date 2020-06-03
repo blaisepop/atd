@@ -18,8 +18,10 @@ class TracksController < ApplicationController
     @track.playlists << @playlist
     #same as @track.playlist_tracks << PlaylistTrack.new(playlist: @playlist)
     authorize @track
-    if @track.save!
-      redirect_to @playlist
+    if @track.save
+      PlaylistChannel.broadcast_to(
+        @playlist,
+        render_to_string(partial: "playlists/track", locals: { track: @track }))
     else
       render 'new'
     end
