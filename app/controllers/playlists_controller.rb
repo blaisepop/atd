@@ -16,6 +16,7 @@ class PlaylistsController < ApplicationController
       #authorize @playlist unless @playlist.nil?
       if @playlist
         authorize @playlist
+        cookies.encrypted[:guest_id] = SecureRandom.uuid
         redirect_to playlist_path(@playlist.id)
       else
         redirect_to root_path

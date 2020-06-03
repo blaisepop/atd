@@ -10,15 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_092338) do
+ActiveRecord::Schema.define(version: 2020_06_03_121110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "guests", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "playlist_tracks", force: :cascade do |t|
     t.bigint "track_id", null: false
@@ -43,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_06_02_092338) do
     t.string "title"
     t.string "album"
     t.integer "duration"
-    t.integer "votes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -61,7 +55,19 @@ ActiveRecord::Schema.define(version: 2020_06_02_092338) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.bigint "track_id", null: false
+    t.bigint "playlist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "guest_id"
+    t.index ["playlist_id"], name: "index_votes_on_playlist_id"
+    t.index ["track_id"], name: "index_votes_on_track_id"
+  end
+
   add_foreign_key "playlist_tracks", "playlists"
   add_foreign_key "playlist_tracks", "tracks"
   add_foreign_key "playlists", "users"
+  add_foreign_key "votes", "playlists"
+  add_foreign_key "votes", "tracks"
 end
