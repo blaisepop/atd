@@ -31,21 +31,20 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = current_user.playlists.new
-    @random_num = rand.to_s[2..8]
-    @playlist.room_code = @random_num
     authorize @playlist
-    @playlist.save!
   end
 
   def create
     @playlist = Playlist.new(playlist_params)
     @playlist.user = current_user
+
+    @playlist.generate_code
     authorize @playlist
-      if @playlist.save!
-        redirect_to playlists_path
-      else
-        render 'new'
-      end
+    if @playlist.save
+      redirect_to playlists_path
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -68,5 +67,5 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.find(params[:id])
     authorize @playlist
   end
-  
+
 end
