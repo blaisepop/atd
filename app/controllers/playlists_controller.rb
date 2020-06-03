@@ -43,6 +43,7 @@ class PlaylistsController < ApplicationController
     if @playlist.save
       redirect_to playlists_path
     else
+      flash[:alert] = "Please type a name for your playlist."
       render 'new'
     end
   end
