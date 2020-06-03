@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+
   include Pundit
 
   # Pundit: white-list approach.
@@ -16,5 +16,11 @@ class ApplicationController < ActionController::Base
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
     redirect_to(root_path)
+  end
+
+  protected
+
+  def after_sign_in_path_for(resource)
+    playlists_path
   end
 end
