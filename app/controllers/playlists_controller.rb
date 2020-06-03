@@ -2,6 +2,7 @@ class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :destroy, :edit, :update]
 
   def index
+    @playlists = Playlist.all
   end
 
   def new
@@ -12,7 +13,7 @@ class PlaylistsController < ApplicationController
   def search
     if params[:query].present?
       @playlist = Playlist.where(room_code: params[:query]).first
-      #authorize @playlist unless @playlist.nil? 
+      #authorize @playlist unless @playlist.nil?
       if @playlist
         authorize @playlist
         redirect_to playlist_path(@playlist.id)
@@ -24,7 +25,7 @@ class PlaylistsController < ApplicationController
     end
   end
 
-  def show 
+  def show
   end
 
   def create
