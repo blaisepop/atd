@@ -1,5 +1,5 @@
 class Track < ApplicationRecord
-  has_many :playlist_tracks
-  has_many :playlists, through: :playlist_tracks
-  has_many :votes
+  has_many :playlist_tracks, dependent: :destroy
+  has_many :playlists, through: :playlist_tracks, dependent: :destroy
+  has_many :votes, dependent: :destroy
 end

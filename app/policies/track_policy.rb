@@ -13,7 +13,7 @@ class TrackPolicy < ApplicationPolicy
     true
   end
 
-  def destroy?
-    true
+  def remove?
+    user.present?
   end
 end
