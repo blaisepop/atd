@@ -44,7 +44,7 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:artist, :title, :album, :duration)
+    params.require(:track).permit(:artist, :title, :album, :duration, :spotify_uri)
   end
 
   def set_track
