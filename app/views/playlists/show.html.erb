@@ -5,16 +5,18 @@
   </div>
   <h1><span class="badge badge-secondary"><%= @playlist.room_code %></span></h1>
 </div>
-<p>Songs submission</p>
+<% if @playlist.user == current_user %>
+  <p>Songs submission</p>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <%= link_to "on", playlist_path(@playlist, "playlist[submission]" => "true"), method: :patch, class: "btn btn-secondary active" %>
+      <%= link_to "off", playlist_path(@playlist, "playlist[submission]" => "false"), method: :patch, class: "btn btn-secondary " %>
+    </div>
+  <p>Songs visible</p>
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
-    <%= link_to "on", playlist_path(@playlist, "playlist[submission]" => "true"), method: :patch, class: "btn btn-secondary active" %>
-    <%= link_to "off", playlist_path(@playlist, "playlist[submission]" => "false"), method: :patch, class: "btn btn-secondary " %>
+    <%= link_to "on", playlist_path(@playlist, "playlist[visible]" => "true"), method: :patch, class: "btn btn-secondary active" %>
+    <%= link_to "off", playlist_path(@playlist, "playlist[visible]" => "false"), method: :patch, class: "btn btn-secondary " %>
   </div>
-<p>Songs visible</p>
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <%= link_to "on", playlist_path(@playlist, "playlist[visible]" => "true"), method: :patch, class: "btn btn-secondary active" %>
-  <%= link_to "off", playlist_path(@playlist, "playlist[visible]" => "false"), method: :patch, class: "btn btn-secondary " %>
-</div>
+<% end %>
 <div class="submission">
   <% if @playlist.submission == true %>
     <div class="p-3 visible">
