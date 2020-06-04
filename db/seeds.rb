@@ -38,7 +38,7 @@ blaise = User.create!(
 puts "Creating playlist"
 playlist = Playlist.create!(
   name: "Party rock",
-  room_code: "2020",
+  room_code: "2020202",
   user: alex
 )
 

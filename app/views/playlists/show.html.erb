@@ -1,17 +1,17 @@
 <div class="d-flex w-100 justify-content-between p-5">
   <div>
-    <h1><%= @playlist.name %></h1>
-    <p>by <%= @playlist.user.username %></p>
+    <h1 class="text-white"><strong><%= @playlist.name %></strong></h1>
+    <p class="text-white">by <%= @playlist.user.username %></p>
   </div>
   <h1><span class="badge badge-secondary"><%= @playlist.room_code %></span></h1>
 </div>
 <% if @playlist.user == current_user %>
-  <p>Songs submission</p>
+  <p class="text-white">Songs submission</p>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
       <%= link_to "on", playlist_path(@playlist, "playlist[submission]" => "true"), method: :patch, class: "btn btn-secondary active" %>
       <%= link_to "off", playlist_path(@playlist, "playlist[submission]" => "false"), method: :patch, class: "btn btn-secondary " %>
     </div>
-  <p>Songs visible</p>
+  <p class="text-white">Songs visible</p>
   <div class="btn-group btn-group-toggle" data-toggle="buttons">
     <%= link_to "on", playlist_path(@playlist, "playlist[visible]" => "true"), method: :patch, class: "btn btn-secondary active" %>
     <%= link_to "off", playlist_path(@playlist, "playlist[visible]" => "false"), method: :patch, class: "btn btn-secondary " %>
@@ -30,13 +30,13 @@
 </div>
 <div class="visible">
   <% if @playlist.visible == true %>
-    <div class="list-group-flush visible" id="tracks" data-playlist-id="<%= @playlist.id %>">
+    <div class="list-group-flush visible pb-3" id="tracks" data-playlist-id="<%= @playlist.id %>">
       <% @playlist.tracks.order(votes_count: :DESC).each do |track| %>
         <%= render "track", track: track%>
       <% end %>
     </div>
   <% else %>
-    <div class="list-group-flush invisible" id="tracks" data-playlist-id="<%= @playlist.id %>">
+    <div class="list-group-flush invisible pb-3" id="tracks" data-playlist-id="<%= @playlist.id %>">
       <% @playlist.tracks.order(votes_count: :DESC).each do |track| %>
         <%= render "track", track: track%>
       <% end %>
