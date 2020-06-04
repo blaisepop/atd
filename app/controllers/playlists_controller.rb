@@ -50,7 +50,7 @@ class PlaylistsController < ApplicationController
 
   def update
     @playlist.update(playlist_params)
-    redirect_to playlists_path
+    redirect_to playlist_path(@playlist)
   end
 
   def destroy
@@ -61,12 +61,11 @@ class PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:name, :room_code)
+    params.require(:playlist).permit(:name, :room_code, :submission, :visible)
   end
 
   def set_playlist
     @playlist = Playlist.find(params[:id])
     authorize @playlist
   end
-
 end

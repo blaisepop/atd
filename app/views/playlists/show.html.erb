@@ -5,11 +5,39 @@
   </div>
   <h1><span class="badge badge-secondary"><%= @playlist.room_code %></span></h1>
 </div>
-<div class="p-3">
-  <%= render "tracks/form"%>
+<p>Songs submission</p>
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <%= link_to "on", playlist_path(@playlist, "playlist[submission]" => "true"), method: :patch, class: "btn btn-secondary active" %>
+    <%= link_to "off", playlist_path(@playlist, "playlist[submission]" => "false"), method: :patch, class: "btn btn-secondary " %>
+  </div>
+<p>Songs visible</p>
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <%= link_to "on", playlist_path(@playlist, "playlist[visible]" => "true"), method: :patch, class: "btn btn-secondary active" %>
+  <%= link_to "off", playlist_path(@playlist, "playlist[visible]" => "false"), method: :patch, class: "btn btn-secondary " %>
 </div>
-<div class="list-group-flush" id="tracks" data-playlist-id="<%= @playlist.id %>">
-  <% @playlist.tracks.order(votes_count: :DESC).each do |track| %>
-    <%= render "track", track: track%>
+<div class="submission">
+  <% if @playlist.submission == true %>
+    <div class="p-3 visible">
+      <%= render "tracks/form"%>
+    </div>
+  <% else %>
+    <div class="p-3 invisible">
+      <%= render "tracks/form"%>
+    </div>
+  <% end %>
+</div>
+<div class="visible">
+  <% if @playlist.visible == true %>
+    <div class="list-group-flush visible" id="tracks" data-playlist-id="<%= @playlist.id %>">
+      <% @playlist.tracks.order(votes_count: :DESC).each do |track| %>
+        <%= render "track", track: track%>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="list-group-flush invisible" id="tracks" data-playlist-id="<%= @playlist.id %>">
+      <% @playlist.tracks.order(votes_count: :DESC).each do |track| %>
+        <%= render "track", track: track%>
+      <% end %>
+    </div>
   <% end %>
 </div>
