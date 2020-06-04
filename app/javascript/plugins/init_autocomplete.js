@@ -1,11 +1,11 @@
 import autocomplete from 'autocompleter';
 const Spotify = require('spotify-web-api-js');
 const s = new Spotify();
-s.setAccessToken('BQCZZh7GEeVbb_5czLC81PmH8W8b2cFKfv5GY66sgt5hRzUxGRd4_bkYgZbhgTnFPAarSZzkv73n3X3vFHEbxird-pQ9dlyGn3LJbj1LMV6vVnH0GJ7rscOvkR1fSNMnBmLHKFHjSxtxew');
+s.setAccessToken('BQAqmmT_EgynPZhyeM_bINsIUsvuKMPenHEuipFfo5dNkHQVv4vY3bvaWozWyBai_pcbW0Fu_5Oqc5mCGMCzvBgrrrGUHqnMDDPTH46g4bsIGXPfn8S1FTNT9sHLeRuh2-Xe5ZV_ZtDkcg');
 
 const initAutocomplete = () => {
   const input = document.getElementById("track_title");
-  console.log(input)
+  const container = document.getElementById("tracks");
   autocomplete({
     input: input,
     minLength:3,
@@ -22,12 +22,32 @@ const initAutocomplete = () => {
         var div = document.createElement("div");
         div.textContent = item.name + " - " + item.artists[0].name
         return div;
-    },
-      onSelect: function(item) {
-        input.value = item.label;
+      },
+      onSelect: function(track) {
+        input.value = "";
+        const data = {
+          track: {
+            artist: track.artists[0].name,
+            title: track.name,
+            album: track.album.name,
+            duration: track.duration_ms
+          }
+
+        }
+        fetch(`/playlists/${container.dataset.playlistId}/tracks`, {
+          method: "POST",
+          headers: {
+            'X-CSRF-Token': document.querySelector('[name=csrf-token]').content,
+            Accept: 'text/html',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        })
       }
     });
     };
 
 
     export { initAutocomplete };
+
+//"/playlists/:playlist_id/tracks(.:format)"
