@@ -19,7 +19,9 @@ class TracksController < ApplicationController
     #same as @track.playlist_tracks << PlaylistTrack.new(playlist: @playlist)
     authorize @track
     if @track.save
-      redirect_to @playlist
+      PlaylistChannel.broadcast_to(
+        @playlist,
+        render_to_string(partial: "playlists/track", locals: { track: @track }))
     else
       flash[:alert] = "Please enter a song title."
       redirect_to @playlist

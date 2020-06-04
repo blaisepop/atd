@@ -66,7 +66,6 @@ track = Track.create!(
   artist: "The Weeknd",
   album: "After hours",
   duration: 200000,
-  votes: 5
 )
 
 track1 = Track.create!(
@@ -74,7 +73,6 @@ track1 = Track.create!(
   artist: "Frank Sinatra",
   album: "That's Life",
   duration: 187000,
-  votes: 42
 )
 
 track2 = Track.create!(
@@ -82,7 +80,6 @@ track2 = Track.create!(
   artist: "Elton John",
   album: "Madman Across The Water",
   duration: 377000,
-  votes: 20
 )
 
 track3 = Track.create!(
@@ -90,7 +87,6 @@ track3 = Track.create!(
   artist: "Fleetwood Mac",
   album: "Rumours (Super Deluxe)",
   duration: 270000,
-  votes: 17
 )
 
 track4 = Track.create!(
@@ -98,7 +94,6 @@ track4 = Track.create!(
   artist: "The Beatles",
   album: "The Beatles (Remastered)",
   duration: 138000,
-  votes: 11
 )
 
 track4 = Track.create!(
@@ -106,7 +101,6 @@ track4 = Track.create!(
   artist: "The Beatles",
   album: "The Beatles (Remastered)",
   duration: 138000,
-  votes: 11
 )
 
 track5 = Track.create!(
@@ -114,7 +108,6 @@ track5 = Track.create!(
   artist: "Oasis",
   album: "(What's the Story) Morning Glory?",
   duration: 290000,
-  votes: 8
 )
 
 track6 = Track.create!(
@@ -122,7 +115,6 @@ track6 = Track.create!(
   artist: "David Bowie",
   album: "Hunky Dory",
   duration: 256000,
-  votes: 4
 )
 
 track7 = Track.create!(
@@ -130,7 +122,6 @@ track7 = Track.create!(
   artist: "Queen",
   album: "Sheer Heart Attack",
   duration: 180000,
-  votes: 9
 )
 
 track8 = Track.create!(
@@ -138,7 +129,6 @@ track8 = Track.create!(
   artist: "The Animals",
   album: "The Singles Plus",
   duration: 146000,
-  votes: 6
 )
 
 track9 = Track.create!(
@@ -146,7 +136,6 @@ track9 = Track.create!(
   artist: "The Rolling Stones",
   album: "Aftermath",
   duration: 202000,
-  votes: 17
 )
 
 track10 = Track.create!(
@@ -154,7 +143,6 @@ track10 = Track.create!(
   artist: "Bon Jovi",
   album: "Slippery When Wet",
   duration: 249000,
-  votes: 40
 )
 
 track11 = Track.create!(
@@ -162,7 +150,6 @@ track11 = Track.create!(
   artist: "AC/DC",
   album: "Back In Black",
   duration: 210000,
-  votes: 25
 )
 
 track12 = Track.create!(
@@ -170,7 +157,6 @@ track12 = Track.create!(
   artist: "Guns N' Roses",
   album: "Appetite For Destruction",
   duration: 355000,
-  votes: 18
 )
 
 track13 = Track.create!(
@@ -178,7 +164,6 @@ track13 = Track.create!(
   artist: "Ozzy Osbourne",
   album: "Blizzard Of Ozz",
   duration: 296000,
-  votes: 4
 )
 
 track14 = Track.create!(
@@ -186,7 +171,6 @@ track14 = Track.create!(
   artist: "U2",
   album: "War (Deluxe Edition Remastered)",
   duration: 279000,
-  votes: 8
 )
 
 track15 = Track.create!(
@@ -194,7 +178,6 @@ track15 = Track.create!(
   artist: "Wolfmother",
   album: "Wolfmother",
   duration: 280000,
-  votes: 13
 )
 
 track16 = Track.create!(
@@ -202,7 +185,6 @@ track16 = Track.create!(
   artist: "Iron Maiden",
   album: "THe Number Of The Beast",
   duration: 431000,
-  votes: 8
 )
 
 track17 = Track.create!(
@@ -210,7 +192,6 @@ track17 = Track.create!(
   artist: "Pilot",
   album: "From The Album Of The Same Name",
   duration: 186000,
-  votes: 3
 )
 
 track18 = Track.create!(
@@ -218,7 +199,6 @@ track18 = Track.create!(
   artist: "Bee Gees",
   album: "Greatest",
   duration: 285000,
-  votes: 9
 )
 
 track19 = Track.create!(
@@ -226,7 +206,6 @@ track19 = Track.create!(
   artist: "Electric Light Orchestra",
   album: "Out of the Blue",
   duration: 303000,
-  votes: 6
 )
 
 track20 = Track.create!(
@@ -234,7 +213,6 @@ track20 = Track.create!(
   artist: "Billy Joel",
   album: "An Innocent Man",
   duration: 198000,
-  votes: 2
 )
 
 track21 = Track.create!(
@@ -242,7 +220,6 @@ track21 = Track.create!(
   artist: "Tones and I",
   album: "Dance Monkey",
   duration: 210000,
-  votes: 8
 )
 
 track22 = Track.create!(
@@ -250,7 +227,6 @@ track22 = Track.create!(
   artist: "Black Eyes Peas",
   album: "Monkey Business",
   duration: 213000,
-  votes: 12
 )
 
 track23 = Track.create!(
@@ -258,7 +234,6 @@ track23 = Track.create!(
   artist: "Milky Chance",
   album: "Sadnecessary",
   duration: 298000,
-  votes: 17
 )
 
 track24 = Track.create!(
@@ -266,7 +241,6 @@ track24 = Track.create!(
   artist: "The Weeknd, Daft Punk",
   album: "Starboy",
   duration: 230000,
-  votes: 21
 )
 
 track25 = Track.create!(
@@ -274,7 +248,6 @@ track25 = Track.create!(
   artist: "Justin Timberlake",
   album: "The 20/20 Experience (Deluxe Edition)",
   duration: 484000,
-  votes: 8
 )
 
 track26 = Track.create!(
@@ -282,7 +255,6 @@ track26 = Track.create!(
   artist: "M.I.A",
   album: "Kala",
   duration: 205000,
-  votes: 13
 )
 
 track27 = Track.create!(
@@ -290,7 +262,6 @@ track27 = Track.create!(
   artist: "The Killers",
   album: "Sam's Town",
   duration: 147000,
-  votes: 18
 )
 
 track28 = Track.create!(
@@ -298,7 +269,6 @@ track28 = Track.create!(
   artist: "Artic Monkeys",
   album: "AM",
   duration: 202000,
-  votes: 27
 )
 
 track28 = Track.create!(
@@ -306,7 +276,6 @@ track28 = Track.create!(
   artist: "Koji Kondo",
   album: "Top 10 Nes Soundtracks",
   duration: 173000,
-  votes: 10
 )
 
 track29 = Track.create!(
@@ -314,7 +283,6 @@ track29 = Track.create!(
   artist: "OneUp Studios",
   album: "Club Game Music",
   duration: 82000,
-  votes: 1
 )
 
 puts "Creating playlist_tracks"
