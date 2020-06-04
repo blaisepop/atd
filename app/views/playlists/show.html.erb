@@ -9,7 +9,7 @@
   <%= render "tracks/form"%>
 </div>
 <div class="list-group-flush" id="tracks" data-playlist-id="<%= @playlist.id %>">
-  <% @playlist.tracks.each do |track| %>
+  <% @playlist.tracks.order(votes_count: :DESC).each do |track| %>
     <%= render "track", track: track%>
   <% end %>
 </div>
