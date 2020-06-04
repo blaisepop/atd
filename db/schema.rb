@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_092045) do
+ActiveRecord::Schema.define(version: 2020_06_04_115623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_06_04_092045) do
     t.string "room_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "submission", default: true
+    t.boolean "visible", default: true
     t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
