@@ -1,7 +1,7 @@
 import autocomplete from 'autocompleter';
 const Spotify = require('spotify-web-api-js');
 const s = new Spotify();
-s.setAccessToken('BQAqmmT_EgynPZhyeM_bINsIUsvuKMPenHEuipFfo5dNkHQVv4vY3bvaWozWyBai_pcbW0Fu_5Oqc5mCGMCzvBgrrrGUHqnMDDPTH46g4bsIGXPfn8S1FTNT9sHLeRuh2-Xe5ZV_ZtDkcg');
+s.setAccessToken('BQDsov4FuZDzyh9IIKrM8F55Lv1h_EUcx1JMsnLHVPzA2W8ZJtBB-68KzPXXU-d3GWgXSDGkSWddXStVZKfyVG2VRJppJRtslVNn7fQFZgtdcSPAxEjLlbJ26tf9qXybg0wHxQc-Pv2R6A');
 
 const initAutocomplete = () => {
   const input = document.getElementById("track_title");
@@ -30,10 +30,11 @@ const initAutocomplete = () => {
             artist: track.artists[0].name,
             title: track.name,
             album: track.album.name,
-            duration: track.duration_ms
+            duration: track.duration_ms,
+            spotify_uri: track.uri
           }
-
         }
+        console.log(data)
         fetch(`/playlists/${container.dataset.playlistId}/tracks`, {
           method: "POST",
           headers: {
