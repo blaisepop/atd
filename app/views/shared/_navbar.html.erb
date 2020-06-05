@@ -1,12 +1,11 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://lh3.googleusercontent.com/proxy/OdnJzyOuieeHPLYOraEWJfqJLPBlXpShZ-0FK6w0W-rGo3yv5yK5KbDeoe3vs-iVBRmoR708-P1dvUtC-cvEgDA" %>
+    <%= image_tag "https://mynewdj.com/images/noun_dj_738239.png" %>
+    <h6 class="text-white d-inline justify-content-start"><strong>ASK THE DJ</strong></h1>
     <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
