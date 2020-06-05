@@ -15,7 +15,13 @@
           </div>
           <div class="d-flex align-items-end flex-column">
             <small class="px-3 pt-2"><%= track.duration.divmod(1000 * 60).first %>:<%= track.duration.divmod(1000 * 60).second/1000 %></small>
-            <i class="fab fa-spotify pt-2 px-3"></i>
+            <span class="badge badge-light badge-pill">
+             <% if track.spotify_uri.present? %>
+                <%= link_to track.spotify_url , target: :_blank do%>
+                <i class="fab fa-spotify pt-2 px-3"></i>
+            <% end %>
+            <% end %>
+            </span>
           </div>
         </div>
         <%= render 'tracks/vote', track: track%>
@@ -28,3 +34,5 @@
       </div>
     </div>
   </div>
+
+
