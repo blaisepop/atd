@@ -1,19 +1,21 @@
 import autocomplete from 'autocompleter';
 const Spotify = require('spotify-web-api-js');
 const s = new Spotify();
-s.setAccessToken('BQDsov4FuZDzyh9IIKrM8F55Lv1h_EUcx1JMsnLHVPzA2W8ZJtBB-68KzPXXU-d3GWgXSDGkSWddXStVZKfyVG2VRJppJRtslVNn7fQFZgtdcSPAxEjLlbJ26tf9qXybg0wHxQc-Pv2R6A');
 
 const initAutocomplete = () => {
   const input = document.getElementById("track_title");
   const container = document.getElementById("tracks");
+
   autocomplete({
     input: input,
     minLength:3,
     fetch: function(text, update) {
+      console.log(container.dataset.spotifyToken)
+      s.setAccessToken(container.dataset.spotifyToken);
+
       text = text.toLowerCase();
       s.searchTracks(text, { limit: 5 }).then(
         (data) => {
-          console.log('Search by "Love"', data.tracks.items);
           update(data.tracks.items);
         });
         // you can also use AJAX requests instead of preloaded data
@@ -43,7 +45,7 @@ const initAutocomplete = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(data)
-        })
+        });
       }
     });
     };
