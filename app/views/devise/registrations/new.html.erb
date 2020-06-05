@@ -1,3 +1,4 @@
+<div class="container py-5">
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -7,13 +8,20 @@
     <%= f.input :email,
                 required: true,
                 autofocus: true,
+                placeholder: 'Your em@il',
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :username,
+                required: true,
+                autofocus: true,
+                placeholder: 'Your username'%>
     <%= f.input :password,
                 required: true,
+                placeholder: 'Password',
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: true,
+                placeholder: 'Type your password again',
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
@@ -21,5 +29,5 @@
     <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
+  </div>
