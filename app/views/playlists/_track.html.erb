@@ -22,6 +22,12 @@
             <% end %>
             <% end %>
             </span>
+            <span class="badge badge-light badge-pill">
+
+                <%= link_to track.youtube_search , target: :_blank do%>
+                <i class="fab fa-youtube pt-2 px-3"></i>
+            <% end %>
+            </span>
           </div>
         </div>
         <%= render 'tracks/vote', track: track%>

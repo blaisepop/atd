@@ -4,9 +4,14 @@ class Track < ApplicationRecord
   has_many :votes, dependent: :destroy
   validates :title, presence: true
 
-def spotify_url
+  def spotify_url
     "https://open.spotify.com/track/#{self.spotify_uri.split(':').last}"
   end
+
+  def youtube_search
+    "https://www.youtube.com/results?search_query=#{self.title}+#{self.artist}"
+  end
+
   private
 
   def set_votes
