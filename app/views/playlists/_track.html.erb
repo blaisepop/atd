@@ -13,7 +13,10 @@
             <h5 class="mb-1"><%= track.title %></h5>
             <small><%= track.artist %> - <%= track.album %></small>
           </div>
-          <small class="px-3"><%= track.duration.divmod(1000 * 60).first %>:<%= track.duration.divmod(1000 * 60).second/1000 %></small>
+          <div class="d-flex align-items-end flex-column">
+            <small class="px-3 pt-2"><%= track.duration.divmod(1000 * 60).first %>:<%= track.duration.divmod(1000 * 60).second/1000 %></small>
+            <i class="fab fa-spotify pt-2 px-3"></i>
+          </div>
         </div>
        <%= link_to playlist_track_votes_path(@playlist, track), method: :post do %>
           <button type="button" class="btn btn-dark">
