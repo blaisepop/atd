@@ -194,7 +194,7 @@ track16 = Track.create!(
   artist: "Iron Maiden",
   album: "THe Number Of The Beast",
   duration: 431000,
-  spotify_uri:"spotify:track:500h8jAdr7LvzzXlm1qxtK",
+  spotify_uri:"spotify:track:469rBLYJUZHMJLtq2Wch3h",
 )
 
 track17 = Track.create!(
@@ -202,7 +202,7 @@ track17 = Track.create!(
   artist: "Pilot",
   album: "From The Album Of The Same Name",
   duration: 186000,
-  spotify_uri:"",
+  spotify_uri:"spotify:track:500h8jAdr7LvzzXlm1qxtK",
 )
 
 track18 = Track.create!(
