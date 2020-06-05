@@ -21,6 +21,11 @@
                 <% end %>
               <% end %>
             </span>
+            <span class="badge badge-light badge-pill">
+                <%= link_to track.youtube_search , target: :_blank do%>
+                <i class="fab fa-youtube pt-2 px-3"></i>
+            <% end %>
+            </span>
             <small class="px-3 pt-2"><%= track.duration.divmod(1000 * 60).first %>:<%= track.duration.divmod(1000 * 60).second/1000 %></small>
           </div>
         </div>
