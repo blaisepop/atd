@@ -14,17 +14,17 @@
     <body>
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
-
+      <div class="container-fluid">
         <%= yield %>
-
-      <div class="footer sticky-bottom">
+      </div>
+      <div class="footer">
         <div class="footer-links">
           <a href="#"><i class="fab fa-instagram"></i></a>
           <a href="#"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
         <div class="footer-copyright">
-          Listen to what <strong>YOU</strong> want to hear <i class="fas fa-headphones-alt"></i>
+          Listen to what you want to hear <i class="fas fa-headphones-alt"></i>
         </div>
       </div>
     </body>
