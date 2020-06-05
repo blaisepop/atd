@@ -38,7 +38,7 @@
   </div>
   <div class="visible">
     <% if @playlist.visible == true %>
-      <div class="list-group-flush visible pb-3" id="d-inline-flexd-inline-flex" data-spotify-token="<%= @token %>" data-playlist-id="<%= @playlist.id %>">
+      <div class="list-group-flush visible pb-3" id="tracks" data-spotify-token="<%= @token %>" data-playlist-id="<%= @playlist.id %>">
         <% @playlist.tracks.order(votes_count: :DESC).each do |track| %>
           <%= render "track", track: track%>
         <% end %>
