@@ -9,7 +9,7 @@ class VotesController < ApplicationController
         action: 'vote',
         track_id: @track.id,
         votes: @track.votes.count
-      }.to_json
+      }
     )
       authorize @vote
   end

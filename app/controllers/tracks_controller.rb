@@ -25,7 +25,7 @@ class TracksController < ApplicationController
           action: 'track',
           content: render_to_string(partial: "playlists/track", locals: { track: @track })
         }
-        )
+      )
     else
       flash[:alert] = "Please enter a song title."
       redirect_to @playlist
