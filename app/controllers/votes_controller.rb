@@ -1,8 +1,16 @@
 class VotesController < ApplicationController
   def create
+    @playlist = Playlist.find(params[:playlist_id])
+    @track = Track.find(params[:track_id])
     @vote = Vote.where(guest_id: cookies.encrypted[:guest_id]).where(playlist_id: params[:playlist_id]).where(track_id: params[:track_id]).first_or_create
-
-    redirect_to playlist_path(params[:playlist_id])
-    authorize @vote
+    PlaylistChannel.broadcast_to(
+      @playlist,
+      {
+        action: 'vote',
+        track_id: @track.id,
+        votes: @track.votes.count
+      }.to_json
+    )
+      authorize @vote
   end
 end

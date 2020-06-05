@@ -15,11 +15,13 @@
           </div>
           <small class="px-3"><%= track.duration.divmod(1000 * 60).first %>:<%= track.duration.divmod(1000 * 60).second/1000 %></small>
         </div>
-       <%= link_to playlist_track_votes_path(@playlist, track), method: :post do %>
+        <%= render 'tracks/vote', track: track%>
+      <!--<%= link_to playlist_track_votes_path(@playlist, track), method: :post do %>
           <button type="button" class="btn btn-dark">
             <i class="fa fa-thumbs-up text-white" aria-hidden="true"></i><span class="badge badge-light badge-pill"><%= track.votes.count %></span>
           </button>
         <% end %>
+        -->
       </div>
     </div>
   </div>
