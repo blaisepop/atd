@@ -1,3 +1,6 @@
+require 'uri'
+require 'net/http'
+
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :destroy, :edit, :update]
 
@@ -19,14 +22,23 @@ class PlaylistsController < ApplicationController
         redirect_to root_path
       end
     else
-        flash[:alert] = "You have not entered a code."
-        redirect_to root_path
+      flash[:alert] = "You have not entered a code."
+      redirect_to root_path
     end
   end
 
   def show
     authorize @playlist
     @track = Track.new
+    uri = URI('https://accounts.spotify.com/api/token')
+    https = Net::HTTP.new(uri.host, uri.port)
+    https.use_ssl = true
+    request = Net::HTTP::Post.new(uri.path)
+    request['Authorization'] = "Basic OGI2YzljMGZmZmVlNDJjMGExMmIyMTMxYmFhOGZjZDY6YTIyZjI5ZDYxYjdhNDlkZDk4N2JhZjJiMzI1Mzk0YzE="
+    request['Content-Type'] = 'application/x-www-form-urlencoded'
+    request.body = "grant_type=client_credentials"
+    response = https.request(request)
+    @token = JSON.parse(response.body)['access_token']
   end
 
   def new
