@@ -4,7 +4,19 @@ import consumer from "./consumer";
     const id = tracksContainer.dataset.playlistId;
     consumer.subscriptions.create({ channel: "PlaylistChannel", id: id }, {
       received(data) {
-        tracksContainer.insertAdjacentHTML('afterbegin', data);
+        data = JSON.parse(data)
+        console.log(data.action)
+        console.log(data)
+        console.log(data["action"])
+        switch(data.action){
+          case "vote":
+            const voteContainer = document.getElementById(`vote-${data.track_id}`);
+            voteContainer.innerHTML = data.votes
+            break;
+          case "track":
+            tracksContainer.insertAdjacentHTML('afterbegin', data);
+            break;
+        }
       }
     });
   }

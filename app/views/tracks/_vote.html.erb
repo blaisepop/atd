@@ -1,0 +1,7 @@
+<div class="vote-container" >
+  <%= link_to playlist_track_votes_path(@playlist, track), method: :post, remote: true do %>
+    <button type="button" class="btn btn-dark">
+      <i class="fa fa-thumbs-up text-white" aria-hidden="true"></i><span id="vote-<%= track.id %>" class="badge badge-light badge-pill"><%= track.votes.count %></span>
+    </button>
+  <% end %>
+</div>
