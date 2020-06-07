@@ -1,13 +1,12 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.itl.cat/pngfile/big/214-2144712_live-dj-wallpaper-dj-hd-1080p.jpg) ;">
-  <div class="search-form-control form-group">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1574847052651-02b57f7f5a4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2767&q=80) ;">
+  <div class="logo"><b>Ask<span>the</span>d<span>j</span>!</b>
     <%= form_tag playlists_search_path, method: :get do %>
       <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
       placeholder: "Room code"
     %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Join the party", class: "btn btn-outline-info" %>
     <% end %>
+    </div>
   </div>
-</div>
 

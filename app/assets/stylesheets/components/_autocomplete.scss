@@ -1,4 +1,13 @@
-.autocomplete{
+
+ .form-control{
+  width:100%;
+ }
+
+ .autocomplete{
   background: white;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+
+  .selected{
+    background-color: rgba(255, 255, 128, .5);
+  }
 }
