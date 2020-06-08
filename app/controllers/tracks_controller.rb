@@ -15,20 +15,24 @@ class TracksController < ApplicationController
   def create
     @playlist = Playlist.find(params[:playlist_id])
     @track = Track.new(track_params)
-    @track.playlists << @playlist
-    #same as @track.playlist_tracks << PlaylistTrack.new(playlist: @playlist)
-    authorize @track
-    if @track.save
-      PlaylistChannel.broadcast_to(
-        @playlist,
-        {
-          action: 'track',
-          content: render_to_string(partial: "playlists/track", locals: { track: @track })
-        }
-      )
+    if @playlist.tracks.map {|t|t.title}.include?(@track.title)
+      @track.votes_count += 1
     else
-      flash[:alert] = "Please enter a song title."
-      redirect_to @playlist
+      @track.playlists << @playlist
+      #same as @track.playlist_tracks << PlaylistTrack.new(playlist: @playlist)
+      authorize @track
+      if @track.save
+        PlaylistChannel.broadcast_to(
+          @playlist,
+          {
+            action: 'track',
+            content: render_to_string(partial: "playlists/track", locals: { track: @track })
+          }
+        )
+      else
+        flash[:alert] = "Please enter a song title."
+        redirect_to @playlist
+      end
     end
   end
 
