@@ -35,28 +35,33 @@ blaise = User.create!(
   password:   "blaise123"
 )
 
-puts "Creating playlist"
+puts "Creating playlist1"
 playlist = Playlist.create!(
   name: "Party rock",
   room_code: "2020202",
+  date: Date.new(2020,06,10),
   user: alex
 )
+puts "Creating playlist2"
 
 playlist1 = Playlist.create!(
   name: "Oldies",
   room_code: "007007",
+  date: Date.new(2020,07,12),
   user: peter
 )
 
 playlist2 = Playlist.create!(
   name: "Renens Wedding",
   room_code: "929345",
+  date: Date.new(2021,01,21),
   user: benson
 )
 
 playlist3 = Playlist.create!(
   name: "Sing along",
   room_code: "1112111",
+  date: Date.new(2021,02,03),
   user: blaise
 )
 
@@ -68,7 +73,7 @@ track = Track.create!(
   duration: 200000,
   spotify_uri:"spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
 )
-
+puts "Creating tracks"
 track1 = Track.create!(
   title: "That's Life",
   artist: "Frank Sinatra",
