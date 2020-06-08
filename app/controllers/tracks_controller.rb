@@ -13,6 +13,7 @@ class TracksController < ApplicationController
   end
 
   def create
+    raise
     @playlist = Playlist.find(params[:playlist_id])
     @track = Track.new(track_params)
     @track.playlists << @playlist
