@@ -36,7 +36,6 @@ const initAutocomplete = () => {
             spotify_uri: track.uri
           }
         }
-        console.log(data)
         fetch(`/playlists/${container.dataset.playlistId}/tracks`, {
           method: "POST",
           headers: {
@@ -50,7 +49,5 @@ const initAutocomplete = () => {
     });
     };
 
-
     export { initAutocomplete };
 
-//"/playlists/:playlist_id/tracks(.:format)"

@@ -4,10 +4,13 @@
     <div>
       <h1 class="text-white"><strong><%= @playlist.name %></strong></h1>
       <p class="text-white">by <%= @playlist.user.username %></p>
-    </div>
+      </div>
     <div class="d-flex align-items-end flex-column">
       <h1><span class="badge badge-secondary mr-5 mb-5 px-4"><%= @playlist.room_code %></span></h1>
       <% if @playlist.user == current_user %>
+      <p> <%=link_to 'Create a Spotify Playlist', '/auth/spotify',class:"btn btn-flat" %></p>
+
+      <p class="text-white"> <%= @spotify_user %></p>
           <div class="pr-5 pb-2">
             <div class="btn-group btn-group-sm btn-group-toggle align-items-start" data-toggle="buttons">
               <p class="text-white font-weight-lighter pr-2">Submission</p>
@@ -60,3 +63,4 @@
     <% end %>
   </div>
 </div>
+<%= console %>

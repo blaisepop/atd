@@ -24,4 +24,9 @@ class PlaylistPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def create_spotify?
+    record.user == user
+  end
+
 end
