@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Destroy all"
+Vote.destroy_all
+PlaylistTrack.destroy_all
 Playlist.destroy_all
 Track.destroy_all
 User.destroy_all
@@ -167,7 +169,8 @@ track12 = Track.create!(
   artist: "Guns N' Roses",
   album: "Appetite For Destruction",
   duration: 355000,
-  spotify_uri:"spotify:track:7o2CTH4ctstm8TNelqjb51",
+  spotify_uri:"spotify:track:7o2CTH4ctstm8TNelqjb51"
+
 )
 
 track13 = Track.create!(
@@ -175,7 +178,8 @@ track13 = Track.create!(
   artist: "Ozzy Osbourne",
   album: "Blizzard Of Ozz",
   duration: 296000,
-  spotify_uri:"spotify:track:2b9lp5A6CqSzwOrBfAFhof",
+  spotify_uri:"spotify:track:2b9lp5A6CqSzwOrBfAFhof"
+
 )
 
 track14 = Track.create!(
@@ -295,7 +299,7 @@ track28 = Track.create!(
   artist: "Artic Monkeys",
   album: "AM",
   duration: 202000,
-  spotify_uri:"spotify:track:2AT8iROs4FQueDv2c8q2KE",
+  spotify_uri:"spotify:track:2AT8iROs4FQueDv2c8q2KE"
 )
 
 track28 = Track.create!(
@@ -303,7 +307,7 @@ track28 = Track.create!(
   artist: "Koji Kondo",
   album: "Top 10 Nes Soundtracks",
   duration: 173000,
-  spotify_uri:"spotify:track:45sBxqtVAuFpJoLGLZbYER",
+  spotify_uri:"spotify:track:45sBxqtVAuFpJoLGLZbYER"
 )
 
 track29 = Track.create!(
@@ -311,7 +315,7 @@ track29 = Track.create!(
   artist: "OneUp Studios",
   album: "Club Game Music",
   duration: 82000,
-  spotify_uri:"spotify:track:4DG4um6R0wx4WrqhhACc5g",
+  spotify_uri:"spotify:track:4DG4um6R0wx4WrqhhACc5g"
 )
 
 puts "Creating playlist_tracks"
@@ -614,3 +618,13 @@ PlaylistTrack.create!(
   track: track29,
   playlist: playlist2
 )
+
+puts "creating votes for tracks in a specific playlist"
+
+rand(0..1000).times do
+  Vote.create!(
+    track: Track.all.sample,
+    playlist: Playlist.all.sample,
+    guest_id: SecureRandom.uuid
+  )
+end
