@@ -22,7 +22,6 @@ gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'pundit'
-gem "bootstrap-switch-rails"
 
 #This is a ruby wrapper for the Spotify Web API.
 gem 'rspotify'
