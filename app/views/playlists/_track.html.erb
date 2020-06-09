@@ -14,24 +14,22 @@
             <small class="font-small"><%= track.artist %> - <%= track.album %></small>
           </div>
           <div class="d-block py-2">
-            <small class="px-3 pt-2 d-none d-sm-block">
+            <small class="px-3 pt-2">
             <% if track.duration.divmod(1000 * 60).second/1000 > 9 %>
              <%= "#{track.duration.divmod(1000 * 60).first}:#{track.duration.divmod(1000 * 60).second/1000}"%>
            <% else %>
              <%= "#{track.duration.divmod(1000 * 60).first}:0#{track.duration.divmod(1000 * 60).second/1000}"%>
             <% end %></small>
-            <div class="d-none d-sm-block">
-              <span class="d-inline badge badge-light badge-pill p-1 px-2 m-0">
-                <% if track.spotify_uri.present? %>
-                  <%= link_to track.spotify_url , target: :_blank do%>
-                    <i class="fab fa-spotify text-success pr-2 text-decoration-none"></i>
-                  <% end %>
+            <span class="d-inline badge badge-light badge-pill p-1 px-2 m-0">
+              <% if track.spotify_uri.present? %>
+                <%= link_to track.spotify_url , target: :_blank do%>
+                  <i class="fab fa-spotify text-success pr-2 text-decoration-none"></i>
                 <% end %>
-                <%= link_to track.youtube_search , target: :_blank do%>
-                  <i class="fab fa-youtube text-info text-decoration-none d-none"></i>
               <% end %>
-              </span>
-            </div>
+              <%= link_to track.youtube_search , target: :_blank do%>
+                <i class="fab fa-youtube text-info text-decoration-none"></i>
+            <% end %>
+            </span>
           </div>
         </div>
         <%= render 'tracks/vote', track: track%>
