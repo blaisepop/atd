@@ -1,14 +1,18 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1574847052651-02b57f7f5a4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2767&q=80) ;">
   <div class="container">
-    <div class="logo"><b>Ask<span>the</span>d<span>j</b>
-      <br><br><p>To suggest a song, join the party!</p>
-      <%= form_tag playlists_search_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        placeholder: "Room code",
-        class: "field"%><br><br>
-        <%= submit_tag "Join the party", class: "button button-1" %>
-      <% end %>
+    <div class="row">
+      <div class="col-lg-12 col-sm-6">
+        <div class="logo"><b>Ask<span>the</span>d<span>j</b>
+          <p>To suggest a song, join the party!</p>
+          <%= form_tag playlists_search_path, method: :get do %>
+            <%= text_field_tag :query,
+            params[:query],
+            placeholder: "Room code",
+            class: "field"%>
+            <%= submit_tag "Join the party", class: "button button-1" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
