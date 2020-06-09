@@ -121,7 +121,7 @@ track6 = Track.create!(
   artist: "David Bowie",
   album: "Hunky Dory",
   duration: 256000,
-  spotify_uri:"",
+  spotify_uri:"spotify:track:3ZE3wv8V3w2T2f7nOCjV0N",
 )
 
 track7 = Track.create!(
