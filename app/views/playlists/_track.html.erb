@@ -1,7 +1,7 @@
   <div class="track-container" id="track-<%= track.id %>">
     <div class="song-card list-group-item list-group-item-action m-0.1 p-0">
       <div class="song-card2 song-card d-flex w-100 min-vh-25">
-        <div class="px-4 d-xs-none d-xs-block">
+        <div class="px-md-4 d-xs-none d-xs-block">
           <% if policy(track).remove? && @playlist.user == current_user %>
             <%= link_to remove_playlist_track_path(@playlist, track), method: :delete, data: { confirm: "Are you sure?" } do %>
               <i class="fas fa-times text-dark"></i>
@@ -14,26 +14,28 @@
             <h5 class="mb-0 mt-0 font-medium"><%= track.title %></h5>
             <small class="font-small"><%= track.artist %> - <%= track.album %></small>
           </div>
-            <div class="py-2 d-flex align-self-center">
-              <div class="div">
-              <small class="px-3">
-                <% if track.duration.divmod(1000 * 60).second/1000 > 9 %>
-                 <%= "#{track.duration.divmod(1000 * 60).first}:#{track.duration.divmod(1000 * 60).second/1000}"%>
-                <% else %>
-                 <%= "#{track.duration.divmod(1000 * 60).first}:0#{track.duration.divmod(1000 * 60).second/1000}"%>
-                <% end %>
-              </small>
-              </div>
-              <span class="d-inline badge badge-light badge-pill p-1 px-2 m-0 align-self-center">
-                  <%= link_to track.spotify_url , target: :_blank do%>
-                    <i class="fab fa-spotify text-success pr-2 text-decoration-none"></i>
+            <div class="py-2 d-flex">
+              <div class="pt-2 d-none d-sm-block">
+                <small class="px-3">
+                  <% if track.duration.divmod(1000 * 60).second/1000 > 9 %>
+                    <%= "#{track.duration.divmod(1000 * 60).first}:#{track.duration.divmod(1000 * 60).second/1000}"%>
+                  <% else %>
+                    <%= "#{track.duration.divmod(1000 * 60).first}:0#{track.duration.divmod(1000 * 60).second/1000}"%>
                   <% end %>
-                <%= link_to track.youtube_search , target: :_blank do%>
-                  <i class="fab fa-youtube text-info text-decoration-none"></i>
-                <% end %>
-              </span>
+                </small>
+              </div>
+              <div class="d-none d-sm-block align-self-center d-md-flex">
+                <span class="d-inline badge badge-light badge-pill p-1 px-2 m-0">
+                    <%= link_to track.spotify_url , target: :_blank do%>
+                      <i class="fab fa-spotify text-success pr-2 text-decoration-none"></i>
+                    <% end %>
+                  <%= link_to track.youtube_search , target: :_blank do%>
+                    <i class="fab fa-youtube text-info text-decoration-none"></i>
+                  <% end %>
+                </span>
+              </div>
               <div>
-              <%= render 'tracks/vote', track: track%>
+                <%= render 'tracks/vote', track: track%>
               </div>
             </div>
         </div>
