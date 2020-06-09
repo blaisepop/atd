@@ -23,6 +23,9 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'pundit'
 
+#This is a ruby wrapper for the Spotify Web API.
+gem 'rspotify'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
