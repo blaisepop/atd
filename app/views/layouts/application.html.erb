@@ -17,17 +17,17 @@
 
         <%= yield %>
 
-      <div class="footer sticky-bottom">
+      <div class="footer fixed-bottom">
         <div class="footer-links">
           <a href="#"><i class="fab fa-instagram"></i></a>
           <a href="#"><i class="fab fa-facebook"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
-        <div class="text-center">
+        <div class="text-center d-none d-sm-block">
           <small class="text-white">Create your own <strong><%= link_to "Party Room", user_session_path, class: "text-decoration-none text-white" %></strong></small><br>
           <small class="text-white">Terms | Privacy</small>
         </div>
-        <div class="footer-copyright">
+        <div class="footer-copyright d-none d-sm-block">
           Listen to what <strong>YOU</strong> want to hear <i class="fas fa-headphones-alt"></i>
 
         </div>

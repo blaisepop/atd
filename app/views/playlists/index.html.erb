@@ -1,42 +1,48 @@
 <div class="container">
-  <div class="logo1"><b>-<span>-</span>-<span>-</span>-</b>
-    <h1 class="pb-5 text-white text-center"><strong><%= current_user.username %>'s Playlists</strong></h1>
-    <div class="row row-cols-1 row-cols-md-2">
-
-      <div class="col mb-4">
-        <%= link_to new_playlist_path do %>
-        <br>
-          <div class="card text-white mb-5 bg-white rounded">
-            <img src="https://wi-images.condecdn.net/image/G3E1YZzqDWE/crop/1440/f/aaagettyimages-172757757-1.jpg" class="card-img-top" id="card-plus" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title text-white text-decoration-none"><i id="plus_button" class="fas fa-plus-circle text-white"></i> <strong>Add a new playlist</strong></h5>
-            </div>
-          </div>
-          <% end %>
-        </div>
-
-        <% @playlists.order(created_at: :DESC).each do |playlist| %>
-          <div class="col mb-4">
-            <% if policy(playlist).update? %>
-              <%= link_to edit_playlist_path(playlist) do %>
-                  <i class="fas fa-edit text-white"></i>
-                <% end %>
-              <% end %>
-              <% if policy(playlist).destroy? %>
-                <%= link_to playlist_path(playlist), method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class="fa fa-trash destroy_dose text-white"></i>
-                <% end %>
-              <% end %>
-            <%= link_to playlist_path(playlist) do %>
-              <div class="card text-white mb-5 bg-white rounded">
-                <img src="https://wi-images.condecdn.net/image/G3E1YZzqDWE/crop/1440/f/aaagettyimages-172757757-1.jpg" class="card-img-top" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title"><strong><%= playlist.name %></strong></h5>
-                </div>
+  <div class="logo1"><b>/<span>/</span>/<span>/</span>|<span>\</span>\<span>\</span>\</b>
+    <h1 class="text-white text-center"><strong><%= current_user.username %>'s Playlists</strong></h1>
+        <div class="mt-n5 pb-5"><b>\<span>\<span>\<span>\</span>|<span>/</span>/<span>/</span>/</b></div>
+    <div class="mb-5 pb-5">
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+          <%= link_to new_playlist_path do %>
+          <br>
+            <div class="card text-white rounded">
+              <img src="https://wi-images.condecdn.net/image/G3E1YZzqDWE/crop/1440/f/aaagettyimages-172757757-1.jpg" class="card-img-top" id="card-plus" alt="...">
+              <div class="card-img-overlay">
+                  <h5 class="card-title text-white text-decoration-none"><i id="plus_button" class="fas fa-plus-circle text-white"></i> <strong>Add a new playlist</strong></h5>
               </div>
+            </div>
             <% end %>
           </div>
-        <% end %>
+
+          <% @playlists.order(created_at: :DESC).each do |playlist| %>
+            <div class="col mb-4">
+              <div class="text-right">
+                <div class="badge badge-light badge-pill p-1 px-2 m-0 mb-1">
+                  <% if policy(playlist).update? %>
+                    <%= link_to edit_playlist_path(playlist) do %>
+                        <i class="fas fa-edit text-warning text-decoration-none"></i>
+                      <% end %>
+                    <% end %>
+                    <% if policy(playlist).destroy? %>
+                      <%= link_to playlist_path(playlist), method: :delete, data: { confirm: "Are you sure?" } do %>
+                        <i class="fa fa-trash destroy_dose text-warning text-decoration-none"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              <%= link_to playlist_path(playlist) do %>
+                <div class="card text-white mb-5 bg-white rounded">
+                  <img src="https://wi-images.condecdn.net/image/G3E1YZzqDWE/crop/1440/f/aaagettyimages-172757757-1.jpg" class="card-img-top" alt="...">
+                  <div class="card-img-overlay">
+                    <h5 class="card-title"><strong><%= playlist.name %></strong></h5>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>

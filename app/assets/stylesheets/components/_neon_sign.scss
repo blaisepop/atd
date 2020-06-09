@@ -11,12 +11,12 @@ html,body{
 .logo {
   text-align: center;
   width: 65%;
-  padding-top: 200px;
+  padding-top: 150px;
   margin: auto;
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
+  right: 140px;
   bottom: 0;
    user-select: none;
 }
@@ -94,7 +94,7 @@ html,body{
 .logo1 {
   text-align: center;
   width: 65%;
-  padding-top: 60px;
+  padding-top: 100px;
   margin: auto;
   position: absolute;
   top: 0;
@@ -105,7 +105,7 @@ html,body{
 }
 
 .logo1 b{
-  font: 400 19vh "Vibur";
+  font: 400 5vh "Vibur";
   color: #fee;
   text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
 }
@@ -142,8 +142,6 @@ h1 {
   color: #000;
   text-transform: uppercase;
   font-weight: 400;
-  margin-left: 30px;
-  margin-bottom: 30px;
   cursor: pointer;
   display: inline-block;
 }
@@ -165,5 +163,5 @@ h1 {
   border: 1px solid #ff4444;
   border-radius: 4px;
   color: #fee;
-  box-shadow: 0 0 10px 0 #ff4444 inset, 0 0 20px 2px #ff4444;
+  box-shadow: 0 0 5px 0 #ff4444 inset, 0 0 10px 1px #ff4444;
 }

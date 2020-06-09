@@ -1,8 +1,23 @@
 // Specific CSS for your home-page
 // Specific CSS for your home-page
+
 .container {
   height: 100vh;
   padding-top: 90px;
+}
+
+.container3{
+    width: 40%;
+    padding-top: 50px;
+    margin: auto;
+    height: 100vh;
+}
+
+.container4{
+    width: 40%;
+    padding-top: 90px;
+    margin: auto;
+    height: 100vh;
 }
 
 .banner {
@@ -99,9 +114,6 @@
   text-size: 7em;
 }
 
-.container {
-  width: 100%;
-}
 
 .search-form-control {
   position: relative;
