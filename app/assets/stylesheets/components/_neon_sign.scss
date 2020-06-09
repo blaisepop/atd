@@ -8,24 +8,23 @@ html,body{
 //   background-size:cover;
 //   margin:0
 // }
-.logo {
-  text-align: center;
-  width: 65%;
-  padding-top: 150px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 140px;
-  bottom: 0;
-   user-select: none;
-}
-
 @media (min-width: 375px) {
   .logo b{
-    font: 400 5em "Vibur";
+    font: 400 6em "Vibur";
     color: #fee;
     text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+  }
+  .logo {
+    text-align: center;
+    width: 65%;
+    padding-top: 150px;
+    margin: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 140px;
+    bottom: 0;
+   user-select: none;
   }
 }
 
@@ -34,6 +33,19 @@ html,body{
     font: 400 10em "Vibur";
     color: #fee;
     text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+  }
+
+  .logo {
+    text-align: center;
+    width: 65%;
+    padding-top: 150px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 140px;
+    bottom: 0;
+   user-select: none;
   }
 }
 
@@ -127,18 +139,27 @@ html,body{
   animation: blink linear infinite 3s;
 }
 
+@media (min-width: 375px) {
+  .logo2 b{
+    font: 400 9vh "Vibur";
+    color: #fee;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+  }
+}
+
+@media (min-width: 576px) {
+  .logo2 b{
+    font: 400 12vh "Vibur";
+    color: #fee;
+    text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+  }
+}
 
 .logo2 {
   text-align: center;
   padding-top: 100px;
   position: relative;
   user-select: none;
-}
-
-.logo2 b{
-  font: 400 12vh "Vibur";
-  color: #fee;
-  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
 }
 
 h1 {
