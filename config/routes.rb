@@ -2,9 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :playlists do
-    member do
-        get "create_spotify"
-      end
     resources :tracks, only: [:new, :create, :edit, :update, :index] do
       member do
         delete 'remove'
@@ -16,6 +13,6 @@ Rails.application.routes.draw do
   #get '/auth/spotify/callback', to: 'users/sessions#spotify'
   devise_scope :user do
     get "/auth/spotify/callback" => "users/sessions#spotify"
+    get "/call_spotify" => "users/sessions#call_spotify"
   end
-
 end
