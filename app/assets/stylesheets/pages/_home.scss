@@ -76,33 +76,16 @@
   color: white;
 }
 
-
-@media (min-width: 375px) {
-  .footer {
-    background: rgb(14,14,14);
-    box-shadow: 0 1px 20px -10px white;
-    display: flex;
-    align-items: center;
-    height: 100px;
-    padding: 0px 50px;
-    padding-left: 150px;
-    color: white;
-  }
+.footer {
+  background: rgb(14,14,14);
+  box-shadow: 0 1px 20px -10px white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: white;
 }
-
-@media (min-width: 576px) {
-  .footer {
-    background: rgb(14,14,14);
-    box-shadow: 0 1px 20px -10px white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100px;
-    padding: 0px 50px;
-    color: white;
-  }
-}
-
 .footer-links {
   display: flex;
   align-items: center;
