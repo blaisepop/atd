@@ -7,7 +7,7 @@
         <small class="text-white pl-4"><i class="fa fa-calendar" aria-hidden="true"></i> <%= @playlist.date.day %> of <%= @playlist.date.strftime("%B") %> <%= @playlist.date.year %></small>
     </div>
     <div class="d-flex align-items-end flex-column">
-      <% if @playlist.user == current_user %>
+      <% if @playlist.user == current_user && @playlist.playlist_uri == nil%>
       <p> <%=link_to 'Create a Spotify Playlist', call_spotify_path(playlist_id: @playlist.id), class:"btn btn-flat" %></p>
           <div class="d-flex pt-4">
             <% if @playlist.submission == false %>
