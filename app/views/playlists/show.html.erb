@@ -10,6 +10,7 @@
       <% if @playlist.user == current_user %>
         <% if @playlist.playlist_uri == nil %>
           <p class="Spotify"> <%=link_to 'Create a Spotify Playlist', call_spotify_path(playlist_id: @playlist.id), class:"btn btn-flat btn-sm" %></p>
+        <% end %>
       <% end %>
     </div>
   </div>
