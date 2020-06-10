@@ -5,12 +5,10 @@ const s = new Spotify();
 const initAutocomplete = () => {
   const input = document.getElementById("track_title");
   const container = document.getElementById("tracks");
-
   autocomplete({
     input: input,
     minLength:3,
     fetch: function(text, update) {
-      console.log(container.dataset.spotifyToken)
       s.setAccessToken(container.dataset.spotifyToken);
 
       text = text.toLowerCase();
@@ -48,6 +46,5 @@ const initAutocomplete = () => {
       }
     });
     };
-
     export { initAutocomplete };
 
