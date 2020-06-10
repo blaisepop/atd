@@ -3,12 +3,12 @@
     <h1 class="text-white text-center"><strong><%= current_user.username %>'s Playlists</strong></h1>
         <div class="mt-n5 pb-2"><b>\<span>\<span>\<span>\</span>|<span>/</span>/<span>/</span>/</b></div>
     <div class="mb-5 pb-5">
-      <div class="row row-cols-1 row-cols-md-2">
+      <div class="row row-cols-1 row-cols-md-3">
         <div class="col">
           <%= link_to new_playlist_path do %>
           <br>
-            <div class="card plus-card text-white rounded">
-              <img src="https://wi-images.condecdn.net/image/G3E1YZzqDWE/crop/1440/f/aaagettyimages-172757757-1.jpg" class="card-img-top" id="card-plus" alt="...">
+            <div class="card all-cards plus-card text-white rounded">
+              <img src="https://cdn.shopify.com/s/files/1/1516/0380/products/vinyle_2984cded-e2e4-49a3-be07-6b3016eebdca_800x.png?v=1477868373" class="card-img-top" id="card-plus" alt="...">
               <div class="card-img-overlay">
                   <h5 class="card-title text-white text-decoration-none"><i id="plus_button" class="fas fa-plus-circle text-white"></i> <strong>Add a new playlist</strong></h5>
               </div>
@@ -33,8 +33,8 @@
                   </div>
                 </div>
               <%= link_to playlist_path(playlist) do %>
-                <div class="card text-white bg-white rounded">
-                  <img src="https://wi-images.condecdn.net/image/G3E1YZzqDWE/crop/1440/f/aaagettyimages-172757757-1.jpg" class="card-img-top" alt="...">
+                <div class="card all-cards text-white rounded">
+                  <img src="https://cdn.shopify.com/s/files/1/1516/0380/products/vinyle_2984cded-e2e4-49a3-be07-6b3016eebdca_800x.png?v=1477868373" class="card-img-top" alt="...">
                   <div class="card-img-overlay">
                     <h5 class="card-title"><strong><%= playlist.name %></strong></h5>
                   </div>

@@ -13,12 +13,11 @@
 @media (min-width: 576px) {
   .container3{
       width: 40%;
-      padding-top: 90px;
+      padding-top: 110px;
       margin: auto;
       height: 100vh;
   }
 }
-
 
 .banner {
   background-size: contain;
@@ -127,6 +126,11 @@
   align-items: center;
 }
 
+.footer-text{
+  padding-left: 10px;
+  text-align: end;
+}
+
 .footer-links a:hover {
   opacity: 1;
 }
@@ -139,6 +143,21 @@
   text-size: 7em;
 }
 
+.img {
+  height: 60%;
+  width: 60%;
+  background-size: contain;
+  background-position: center;
+  background-size: cover;
+}
+
+.all-cards{
+  background-color: #8b1541
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
 
 .search-form-control {
   position: relative;

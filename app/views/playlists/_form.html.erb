@@ -1,8 +1,12 @@
 <%= simple_form_for(@playlist) do |f| %>
-  <p class="titlebox font-weight-bold text-center">Playlist</p>
-  <p class="pt-1"><%= f.label :name %></p>
-  <p class="pb-4"><%= f.text_field :name %></p><br>
-  <p class="titlebox font-weight-bold text-center">Event</p>
-  <p class="pb-1"><%= f.input :date, as: :date %></p><br>
-  <p class="text-right"><%= f.submit %>
+  <p class="titlebox">Playlist</p>
+  <div class="new-name">
+    <p class="name-form">Name</p>
+    <p class="pb-4 mr-3"><%= f.text_field :name, placeholder: "Playlist name" %></p><br>
+  </div>
+  <p class="titlebox">Event</p>
+  <div class="date-picker">
+    <%= f.input :date, as: :date, class: "pb-1" %>
+  </div>
+  <p class="button-padding"><%= f.submit %>
 <% end %>
