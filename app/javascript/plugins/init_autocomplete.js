@@ -20,7 +20,19 @@ const initAutocomplete = () => {
       },
       render: function(item, currentValue) {
         var div = document.createElement("div");
-        div.textContent = item.name + " - " + item.artists[0].name
+        div.id = 'content'
+        div.style.padding = "0px 10px";
+        div.style.paddingTop = "5px";
+        div.style.borderBottom = "1px solid white";
+        let h6 = document.createElement('h6');
+        h6.textContent = item.name;
+        h6.style.fontWeight = "bold";
+        h6.style.fontSize = "16px";
+        div.appendChild(h6);
+        let p = document.createElement('p');
+        p.textContent = item.artists[0].name + ' - ' + item.album.name;
+        p.style.fontSize = "10px";
+        div.appendChild(p);
         return div;
       },
       onSelect: function(track) {
