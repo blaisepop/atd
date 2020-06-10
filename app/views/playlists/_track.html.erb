@@ -26,9 +26,12 @@
               </div>
               <div class="d-none d-sm-block align-self-center d-md-flex">
                 <span class="d-inline badge badge-light badge-pill p-1 px-2 m-0">
-                    <%= link_to track.spotify_url , target: :_blank do%>
+                  <% if @playlist.playlist_uri != nil %>
+
+                    <%= link_to add_song_to_spotify_playlist_path(playlist_uri: @playlist.playlist_uri,track_uri: track.spotify_uri) , target: :_blank do%>
                       <i class="fab fa-spotify text-success pr-2 text-decoration-none"></i>
                     <% end %>
+                  <% end %>
                   <%= link_to track.youtube_search , target: :_blank do%>
                     <i class="fab fa-youtube text-info text-decoration-none"></i>
                   <% end %>

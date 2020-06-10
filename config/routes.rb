@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/auth/spotify/callback" => "users/sessions#spotify"
     get "/call_spotify" => "users/sessions#call_spotify"
+    get "/add_song_to_spotify_playlist" => "users/sessions#add_song_to_spotify_playlist"
   end
 end
