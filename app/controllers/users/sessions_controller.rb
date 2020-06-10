@@ -11,13 +11,12 @@ class Users::SessionsController < Devise::SessionsController
     @playlist = Playlist.find(current_user.temp_playlist_id)
     @spotify_playlist = @spotify_user.create_playlist!(@playlist.name)
     @playlist_uri = @spotify_playlist.uri
-
     # Now you can access user's private data, create playlists and much more
     # Access private data
     # spotify_user.country #=> "US"
     # spotify_user.email   #=> "example@email.com"
     # Create playlist in user's Spotify account
-    # Add tracks to a playlist in user's Spotify account
+
     #@tracks = RSpotify::Track.search('Know')
 
     get_tracks = @playlist.tracks.map{|track|track.spotify_uri}
@@ -25,6 +24,7 @@ class Users::SessionsController < Devise::SessionsController
 
     @playlist.playlist_uri = @playlist_uri
     @playlist.save
+    session[:spotify_hash] = @spotify_user.to_hash
 
     #@spotify_playlist.add_tracks!(@tracks)
     # @spotify_playlist.tracks.first.name #=> "Somebody That I Used To Know"
@@ -53,4 +53,15 @@ class Users::SessionsController < Devise::SessionsController
   #   params.permit(:playlist_name)
   # end
   end
+
+  def add_song_to_spotify_playlist
+    @playlist_id = params[:playlist_uri].split(':').last
+    @spotify_playlist = RSpotify::Playlist.find(session[:display_name], @playlist_id)
+    @track_uri = params[:track_uri]
+    @spotify_playlist.add_tracks!([@track_uri])
+    redirect_to playlists_path
+  end
+
+
+
 end
