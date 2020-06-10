@@ -2,7 +2,7 @@ class Playlist < ApplicationRecord
   belongs_to :user
   has_many :playlist_tracks, dependent: :destroy
   has_many :tracks, through: :playlist_tracks
-  has_many :votes
+  has_many :votes, dependent: :destroy
   validates :name, presence: true
 
   def generate_code
