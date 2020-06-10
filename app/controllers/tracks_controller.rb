@@ -18,7 +18,6 @@ class TracksController < ApplicationController
     @track.playlists << @playlist
     #same as @track.playlist_tracks << PlaylistTrack.new(playlist: @playlist)
     authorize @track
-
     # if @track.present?
     #   @track.votes += 1
     # else
