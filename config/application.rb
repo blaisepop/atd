@@ -15,7 +15,7 @@ module AskTheDj
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    RSpotify::authenticate("8b6c9c0fffee42c0a12b2131baa8fcd6", "a22f29d61b7a49dd987baf2b325394c1")
+    RSpotify::authenticate(ENV['SPOTIFY_CLIENT_ID'],ENV['SPOTIFY_CLIENT_SECRET'])
 
 
     # Settings in config/environments/* take precedence over those specified here.

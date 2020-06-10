@@ -10,6 +10,8 @@ class Users::SessionsController < Devise::SessionsController
     @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
     @playlist = Playlist.find(current_user.temp_playlist_id)
     @spotify_playlist = @spotify_user.create_playlist!(@playlist.name)
+    @playlist_uri = @spotify_playlist.uri
+
     # Now you can access user's private data, create playlists and much more
     # Access private data
     # spotify_user.country #=> "US"
@@ -21,9 +23,8 @@ class Users::SessionsController < Devise::SessionsController
     get_tracks = @playlist.tracks.map{|track|track.spotify_uri}
     @spotify_playlist.add_tracks!(get_tracks)
 
-    # get_tracks.each do |track|
-    #   @spotify_playlist.add_tracks!(track)
-    # end
+    @playlist.playlist_uri = @playlist_uri
+    @playlist.save
 
     #@spotify_playlist.add_tracks!(@tracks)
     # @spotify_playlist.tracks.first.name #=> "Somebody That I Used To Know"
