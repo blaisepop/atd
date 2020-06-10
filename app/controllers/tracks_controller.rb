@@ -33,7 +33,7 @@ class TracksController < ApplicationController
         flash[:alert] = "Please enter a song title."
         redirect_to @playlist
       end
-    end
+    # end
   end
 
   def update
