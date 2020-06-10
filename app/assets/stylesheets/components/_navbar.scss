@@ -1,14 +1,3 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: rgb(14,14,14);
-  color: white;
-  box-shadow: 0 1px 20px -10px white;
-  background: var(--c-light);
-    -webkit-transition: .35s background;
-    -o-transition: .35s background;
-    transition: .35s background;
-}
-
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -17,3 +6,36 @@
   width: 40px;
 }
 
+@media (min-width: 375px) {
+  .navbar-lewagon {
+    justify-content: space-between;
+    color: white;
+    background: var(--c-light);
+      -webkit-transition: .35s background;
+      -o-transition: .35s background;
+      transition: .35s background;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+}
+
+@media (min-width: 576px) {
+  .navbar-lewagon {
+    justify-content: space-between;
+    background: rgb(14,14,14);
+    color: white;
+    box-shadow: 0 1px 20px -10px white;
+    background: var(--c-light);
+      -webkit-transition: .35s background;
+      -o-transition: .35s background;
+      transition: .35s background;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+}

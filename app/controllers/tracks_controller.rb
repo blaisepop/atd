@@ -18,17 +18,21 @@ class TracksController < ApplicationController
     @track.playlists << @playlist
     #same as @track.playlist_tracks << PlaylistTrack.new(playlist: @playlist)
     authorize @track
-    if @track.save
-      PlaylistChannel.broadcast_to(
-        @playlist,
-        {
-          action: 'track',
-          content: render_to_string(partial: "playlists/track", locals: { track: @track })
-        }
-      )
+    if @track.present?
+      @track.votes += 1
     else
-      flash[:alert] = "Please enter a song title."
-      redirect_to @playlist
+      if @track.save
+        PlaylistChannel.broadcast_to(
+          @playlist,
+          {
+            action: 'track',
+            content: render_to_string(partial: "playlists/track", locals: { track: @track })
+          }
+        )
+      else
+        flash[:alert] = "Please enter a song title."
+        redirect_to @playlist
+      end
     end
   end
 
