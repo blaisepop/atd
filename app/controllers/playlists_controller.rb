@@ -35,7 +35,7 @@ class PlaylistsController < ApplicationController
     https = Net::HTTP.new(uri.host, uri.port)
     https.use_ssl = true
     request = Net::HTTP::Post.new(uri.path)
-    request['Authorization'] = "Basic OGI2YzljMGZmZmVlNDJjMGExMmIyMTMxYmFhOGZjZDY6YTIyZjI5ZDYxYjdhNDlkZDk4N2JhZjJiMzI1Mzk0YzE="
+    request['Authorization'] = (ENV['SPOTIFY_CLIENT_BASIC'])
     request['Content-Type'] = 'application/x-www-form-urlencoded'
     request.body = "grant_type=client_credentials"
     response = https.request(request)
