@@ -32,3 +32,76 @@
 .font-small {
   font-size: 10px;
 }
+
+.plus-card {
+ margin-top: 27px;
+}
+
+@media (min-width: 375px) {
+  .Spotify {
+    position: relative;
+    top: 40px;
+    right: 13px;
+  }
+  .playlist-info {
+    position: relative;
+    bottom: 45px;
+  }
+  .playlist-name {
+    display: flex;
+    left: 20px;
+    font-size: 25px;
+  }
+  .cross {
+    padding-right: 10px;
+  }
+  .by-dj {
+    position: relative;
+    right: 15px;
+    bottom: 4px;
+    font-size:15px;
+  }
+  .date {
+    position: relative;
+    bottom: 20px;
+    left: 70px;
+    color: rgb(180,180,180);
+    font-size: 15px;
+  }
+  .switch {
+    padding-top: 90px;
+  }
+}
+
+@media (min-width: 576px) {
+  .Spotify {
+    position: relative;
+    top: 0px;
+    right: 0px;
+  }
+  .playlist-info {
+    position: relative;
+    bottom: 0px;
+    padding-bottom: 40px;
+  }
+  .playlist-name {
+    display: block;
+  }
+  .cross {
+    padding-right: 0px;
+  }
+  .by-dj {
+    position: relative;
+    right: 0px;
+  }
+  .date {
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+    color: rgb(180,180,180);
+    left: 20px;
+  }
+  .switch {
+    padding-top: 20px;
+  }
+}

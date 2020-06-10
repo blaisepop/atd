@@ -1,38 +1,46 @@
 <div class="container py-5 px-5 mb-5">
   <div class="logo2"><b><%= @playlist.room_code %></b></div>
-  <div class="d-flex w-100 justify-content-between py-5">
-    <div>
-      <h2 class="text-white pl-4"><strong><%= @playlist.name %></strong></h2>
-        <p class="text-white pl-4">by <%= @playlist.user.username %></p>
-        <small class="text-white pl-4"><i class="fa fa-calendar" aria-hidden="true"></i> <%= @playlist.date.day %> of <%= @playlist.date.strftime("%B") %> <%= @playlist.date.year %></small>
+
+  <div class="row d-flex w-100 justify-content-between pt-5">
+    <div class="playlist-name col-md-6 col-sm-12">
+      <h2 class="playlist-name text-white pl-4"><strong><%= @playlist.name %></strong></h2>
+        <p class="by-dj text-white mt-2 pl-4">by <%= @playlist.user.username %></p>
     </div>
-    <div class="d-flex align-items-end flex-column">
-      <% if @playlist.user == current_user%>
-          <% if @playlist.playlist_uri == nil %>
-            <p> <%=link_to 'Create a Spotify Playlist', call_spotify_path(playlist_id: @playlist.id), class:"btn btn-flat" %></p>
+    <div class=" col-md-6 col-sm-12 d-flex align-items-end flex-column">
+      <% if @playlist.user == current_user %>
+        <% if @playlist.playlist_uri == nil %>
+          <p class="Spotify"> <%=link_to 'Create a Spotify Playlist', call_spotify_path(playlist_id: @playlist.id), class:"btn btn-flat btn-sm" %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="playlist-info row d-flex w-100 justify-content-between">
+    <div class="date col-7">
+        <small class="pl-4"><i class="fa fa-calendar" aria-hidden="true"></i> <%= @playlist.date.day.ordinalize %> of <%= @playlist.date.strftime("%B") %> <%= @playlist.date.year %></small>
+    </div>
+    <div class="switch col-5 d-flex flex-column align-items-end">
+      <% if @playlist.user == current_user %>
+        <div class="d-flex">
+          <% if @playlist.submission == false %>
+            <small class="text-white font-weight-lighter pr-1">Submission</small><%= link_to playlist_path(@playlist, "playlist[submission]" => "true"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
+              <i class="fas fa-toggle-off"></i>
+            <% end %>
+          <% else %>
+            <small class="text-white font-weight-lighter pr-1">Submission</small><%= link_to playlist_path(@playlist, "playlist[submission]" => "false"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
+              <i class="fas fa-toggle-on"></i>
+            <% end %>
           <% end %>
-          <div class="d-flex pt-4">
-            <% if @playlist.submission == false %>
-              <small class="text-white font-weight-lighter pr-1">Submission</small><%= link_to playlist_path(@playlist, "playlist[submission]" => "true"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
-                <i class="fas fa-toggle-off"></i>
-              <% end %>
-            <% else %>
-              <small class="text-white font-weight-lighter pr-1">Submission</small><%= link_to playlist_path(@playlist, "playlist[submission]" => "false"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
-                <i class="fas fa-toggle-on"></i>
-              <% end %>
+        </div>
+        <div class="d-flex pt-2">
+          <% if @playlist.visible == false %>
+            <small class="text-white font-weight-lighter pr-1">Visible</small><%= link_to playlist_path(@playlist, "playlist[visible]" => "true"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
+              <i class="fas fa-toggle-off"></i>
             <% end %>
-          </div>
-          <div class="d-flex pt-2">
-            <% if @playlist.visible == false %>
-              <small class="text-white font-weight-lighter pr-1">Visible</small><%= link_to playlist_path(@playlist, "playlist[visible]" => "true"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
-                <i class="fas fa-toggle-off"></i>
-              <% end %>
-            <% else %>
-              <small class="text-white font-weight-lighter pr-1">Visible</small><%= link_to playlist_path(@playlist, "playlist[visible]" => "false"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
-                <i class="fas fa-toggle-on"></i>
-              <% end %>
+          <% else %>
+            <small class="text-white font-weight-lighter pr-1">Visible</small><%= link_to playlist_path(@playlist, "playlist[visible]" => "false"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
+              <i class="fas fa-toggle-on"></i>
             <% end %>
-          </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>

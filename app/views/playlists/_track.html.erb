@@ -1,20 +1,19 @@
   <div class="track-container" id="track-<%= track.id %>">
     <div class="song-card list-group-item list-group-item-action m-0.1 p-0">
       <div class="song-card2 song-card d-flex w-100 min-vh-25">
-        <div class="px-md-4 d-xs-none d-xs-block">
+        <div class="cross px-md-4">
           <% if policy(track).remove? && @playlist.user == current_user %>
             <%= link_to remove_playlist_track_path(@playlist, track), method: :delete, data: { confirm: "Are you sure?" } do %>
               <i class="fas fa-times text-dark"></i>
             <% end %>
           <% end %>
         </div>
-
-        <div class="d-flex w-100 min-vh justify-content-between">
+        <div class="d-flex w-100 justify-content-between">
           <div>
-            <h5 class="mb-0 mt-0 font-medium"><%= track.title %></h5>
+            <h5 class="pt-1 mb-0 mt-0 font-medium"><%= track.title %></h5>
             <small class="font-small"><%= track.artist %> - <%= track.album %></small>
           </div>
-            <div class="py-2 d-flex">
+            <div class="py-1 d-flex">
               <div class="pt-2 d-none d-sm-block">
                 <small class="px-3">
                   <% if track.duration.divmod(1000 * 60).second/1000 > 9 %>
