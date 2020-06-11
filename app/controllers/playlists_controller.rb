@@ -1,10 +1,8 @@
 require 'uri'
 require 'net/http'
 
-
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :destroy, :edit, :update, :create_spotify]
-
 
   def index
     @playlists = current_user.playlists
@@ -91,12 +89,11 @@ class PlaylistsController < ApplicationController
   private
 
   def playlist_params
-    params.require(:playlist).permit(:name, :room_code, :submission, :date, :visible)
+    params.require(:playlist).permit(:name, :room_code, :submission, :date, :seetracks)
   end
 
   def set_playlist
     @playlist = Playlist.find(params[:id])
     authorize @playlist
   end
-
 end
