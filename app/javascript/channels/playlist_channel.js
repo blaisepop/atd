@@ -6,8 +6,9 @@ import consumer from "./consumer";
       received(data) {
           switch(data.action){
           case "vote":
+            console.log(data);
             const voteContainer = document.getElementById(`vote-${data.track_id}`);
-            voteContainer.innerHTML = data.votes
+            voteContainer.innerHTML = data.votes;
             break;
           case "track":
             tracksContainer.insertAdjacentHTML('afterbegin', data.content);

@@ -8,7 +8,8 @@ class VotesController < ApplicationController
       {
         action: 'vote',
         track_id: @track.id,
-        votes: @track.votes.where(playlist_id: @playlist.id).size
+        votes: @track.votes.where(playlist_id: @playlist.id).size,
+        tracks: @playlist.tracks
       }
     )
       authorize @vote
