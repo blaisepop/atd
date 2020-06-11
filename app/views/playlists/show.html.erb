@@ -32,12 +32,12 @@
           <% end %>
         </div>
         <div class="d-flex pt-2">
-          <% if @playlist.visible == false %>
-            <small class="text-white font-weight-lighter pr-1">Visible</small><%= link_to playlist_path(@playlist, "playlist[visible]" => "true"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
+          <% if @playlist.seetracks == false %>
+            <small class="text-white font-weight-lighter pr-1">Visible tracks</small><%= link_to playlist_path(@playlist, "playlist[seetracks]" => "true"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
               <i class="fas fa-toggle-off"></i>
             <% end %>
           <% else %>
-            <small class="text-white font-weight-lighter pr-1">Visible</small><%= link_to playlist_path(@playlist, "playlist[visible]" => "false"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
+            <small class="text-white font-weight-lighter pr-1">Visible tracks</small><%= link_to playlist_path(@playlist, "playlist[seetracks]" => "false"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
               <i class="fas fa-toggle-on"></i>
             <% end %>
           <% end %>
@@ -62,27 +62,25 @@
       <% end %>
     <% end %>
   </div>
-  <div class="visible">
-    <% if @playlist.visible == true %>
+  <div class="seetracks">
+    <% if @playlist.seetracks == true %>
       <div class="list-group-flush visible pb-3" id="tracks" data-spotify-token="<%= @token %>" data-playlist-id="<%= @playlist.id %>">
         <% Vote.where(playlist: @playlist).group(:track_id).order(count: :DESC).count.each do |track| %>
           <%= render "track", track: Track.find(track.first)%>
         <% end %>
       </div>
-    <% else %>
-      <% if @playlist.user == current_user %>
+    <% elsif @playlist.user == current_user%>
         <div class="list-group-flush visible pb-3" id="tracks" data-spotify-token="<%= @token %>" data-playlist-id="<%= @playlist.id %>">
         <% Vote.where(playlist: @playlist).group(:track_id).order(count: :DESC).count.each do |track| %>
           <%= render "track", track: Track.find(track.first)%>
         <% end %>
         </div>
-      <% else %>
+    <% elsif @playlist.seetracks == false %>
         <div class="list-group-flush invisible pb-3" id="tracks" data-spotify-token="<%= @token %>" data-playlist-id="<%= @playlist.id %>">
           <% Vote.where(playlist: @playlist).group(:track_id).order(count: :DESC).count.each do |track| %>
             <%= render "track", track: Track.find(track.first)%>
           <% end %>
         </div>
-      <% end %>
     <% end %>
   </div>
 </div>
