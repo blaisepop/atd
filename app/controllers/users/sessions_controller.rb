@@ -46,7 +46,7 @@ class Users::SessionsController < Devise::SessionsController
     # Get user's top played artists and tracks
     # spotify_user.top_artists #=> (Artist array)
     # spotify_user.top_tracks(time_range: 'short_term') #=> (Track array)
-    redirect_to playlists_path
+    redirect_to playlist_path(current_user.temp_playlist_id)
   # private
 
   # def sessions_params
@@ -59,6 +59,6 @@ class Users::SessionsController < Devise::SessionsController
     @spotify_playlist = RSpotify::Playlist.find(session[:display_name], @playlist_id)
     @track_uri = params[:track_uri]
     @spotify_playlist.add_tracks!([@track_uri])
-    redirect_to playlists_path
+    redirect_to playlist_path(current_user.temp_playlist_id)
   end
 end
