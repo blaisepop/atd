@@ -5,16 +5,18 @@ const s = new Spotify();
 const initAutocomplete = () => {
   const input = document.getElementById("track_title");
   const container = document.getElementById("tracks");
-  autocomplete({
-    input:input,
-    minLength:3,
-    fetch: function(text, update) {
-      s.setAccessToken(container.dataset.spotifyToken);
-      text = text.toLowerCase();
-      s.searchTracks(text, { limit: 5 }).then(
-        (data) => {
-          update(data.tracks.items);
-        });
+  const AddSongElement = document.getElementById("track_title");
+  if (AddSongElement) {
+    autocomplete({
+      input:input,
+      minLength:3,
+      fetch: function(text, update) {
+        s.setAccessToken(container.dataset.spotifyToken);
+        text = text.toLowerCase();
+        s.searchTracks(text, { limit: 5 }).then(
+          (data) => {
+            update(data.tracks.items);
+          });
         // you can also use AJAX requests instead of preloaded data
       },
       render: function(item, currentValue) {
@@ -55,7 +57,9 @@ const initAutocomplete = () => {
           body: JSON.stringify(data)
         });
       }
+
     });
-    };
-    export { initAutocomplete };
+  };
+}
+export { initAutocomplete };
 
