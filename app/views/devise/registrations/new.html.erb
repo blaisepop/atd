@@ -1,6 +1,6 @@
 <div class="container">
   <div class="container py-5">
-    <h2 class="text-light pt-5 pb-3">Sign up</h2>
+    <h2 class="text-light pt-5 pb-3">Sign up to create playlists</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
@@ -14,7 +14,8 @@
         <%= f.input :username,
                     required: true,
                     autofocus: true,
-                    placeholder: 'Your username'%>
+                    placeholder: 'Your username',
+                    input_html: { class: 'special', id: 'username' }%>
         <%= f.input :password,
                     required: true,
                     placeholder: 'Password',
@@ -31,6 +32,7 @@
           <%= f.button :submit, "Sign up", class: 'btn btn-outline-info' %>
         </div>
       <% end %>
+      <%= console %>
       </div>
     </div>
 </div>

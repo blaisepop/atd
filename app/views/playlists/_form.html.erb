@@ -5,8 +5,6 @@
     <p class="pb-4 mr-3"><%= f.text_field :name, placeholder: "Playlist name" %></p><br>
   </div>
   <p class="titlebox">Event</p>
-  <div class="date-picker">
-    <%= f.input :date, as: :date, class: "pb-1" %>
-  </div>
+  <%= f.input :date, as: :string, input_html: {id:"event_date"} %>
   <p class="button-padding"><%= f.submit %>
 <% end %>
