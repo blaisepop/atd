@@ -51,9 +51,15 @@
         <%= render "tracks/form"%>
       </div>
     <% else %>
-      <div class="px-3 invisible">
-        <%= render "tracks/form"%>
-      </div>
+      <% if @playlist.user == current_user %>
+        <div class="px-3 visible">
+          <%= render "tracks/form"%>
+        </div>
+      <% else %>
+        <div class="px-3 invisible">
+          <%= render "tracks/form"%>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <div class="visible">
