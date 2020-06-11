@@ -71,23 +71,6 @@ class PlaylistsController < ApplicationController
     redirect_to playlists_path
   end
 
-#   def create_spotify
-#     RSpotify.authenticate("8b6c9c0fffee42c0a12b2131baa8fcd6", "a22f29d61b7a49dd987baf2b325394c1")
-
-# # Now you can access playlists in detail, browse featured content and more
-
-#     me = RSpotify::User.find('blaise pop')
-#     @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
-#     # Now you can access user's private data, create playlists and much more
-# raise
-#     # Access private data
-#     # spotify_user.country #=> "US"
-#     # spotify_user.email   #=> "example@email.com"
-
-#     # Create playlist in user's Spotify account
-#     @spotify_playlist = @spotify_user.create_playlist!(@playlist.name)
-#   end
-
   private
 
   def playlist_params
