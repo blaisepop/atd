@@ -6,11 +6,10 @@ const initAutocomplete = () => {
   const input = document.getElementById("track_title");
   const container = document.getElementById("tracks");
   autocomplete({
-    input: input,
+    input:input,
     minLength:3,
     fetch: function(text, update) {
       s.setAccessToken(container.dataset.spotifyToken);
-
       text = text.toLowerCase();
       s.searchTracks(text, { limit: 5 }).then(
         (data) => {
@@ -20,7 +19,7 @@ const initAutocomplete = () => {
       },
       render: function(item, currentValue) {
         var div = document.createElement("div");
-        div.id = 'content'
+        div.id = 'content';
         div.style.padding = "0px 10px";
         div.style.paddingTop = "5px";
         div.style.borderBottom = "1px solid white";

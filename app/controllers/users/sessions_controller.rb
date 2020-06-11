@@ -61,7 +61,4 @@ class Users::SessionsController < Devise::SessionsController
     @spotify_playlist.add_tracks!([@track_uri])
     redirect_to playlists_path
   end
-
-
-
 end
