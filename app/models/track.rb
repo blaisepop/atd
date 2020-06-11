@@ -12,11 +12,7 @@ class Track < ApplicationRecord
     "https://www.youtube.com/results?search_query=#{self.title}+#{self.artist}"
   end
 
-  private
-
-  def set_votes
-    self.votes_count ||= Track.votes.count
+  def votes_number(playlist_id)
+    self.votes.where(playlist_id: playlist_id).count
   end
-
-
 end
