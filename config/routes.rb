@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       member do
         delete 'remove'
       end
-      resources :votes, only: [:create]
+    resources :votes, only: [:create]
     end
   end
   get 'playlists_search', to: 'playlists#search'

@@ -11,7 +11,7 @@ import consumer from "./consumer";
             voteContainer.innerHTML = data.votes;
             break;
           case "track":
-            tracksContainer.insertAdjacentHTML('afterbegin', data.content);
+            tracksContainer.insertAdjacentHTML('afterend', data.content);
             break;
         }
       }

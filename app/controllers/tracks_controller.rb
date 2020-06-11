@@ -1,6 +1,7 @@
 class TracksController < ApplicationController
   before_action :set_track, only: %i[remove edit update show]
 
+
   def index
     @tracks = Track.all
   end
@@ -21,7 +22,7 @@ class TracksController < ApplicationController
     # if @track.present?
     #   @track.votes += 1
     # else
-      if @track.save
+      if @track.save!
         PlaylistChannel.broadcast_to(
           @playlist,
           {

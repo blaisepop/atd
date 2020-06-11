@@ -65,20 +65,20 @@
   <div class="seetracks">
     <% if @playlist.seetracks == true %>
       <div class="list-group-flush visible pb-3" id="tracks" data-spotify-token="<%= @token %>" data-playlist-id="<%= @playlist.id %>">
-        <% Vote.where(playlist: @playlist).group(:track_id).order(count: :DESC).count.each do |track| %>
-          <%= render "track", track: Track.find(track.first)%>
+        <% @playlist.tracks.sort_by{|track1| - track1.votes_number(@playlist.id)}.each do |track| %>
+          <%= render "track", track: track %>
         <% end %>
       </div>
     <% elsif @playlist.user == current_user%>
         <div class="list-group-flush visible pb-3" id="tracks" data-spotify-token="<%= @token %>" data-playlist-id="<%= @playlist.id %>">
-        <% Vote.where(playlist: @playlist).group(:track_id).order(count: :DESC).count.each do |track| %>
-          <%= render "track", track: Track.find(track.first)%>
+        <% @playlist.tracks.sort_by{|track1| - track1.votes_number(@playlist.id)}.each do |track| %>
+          <%= render "track", track: track %>
         <% end %>
         </div>
     <% elsif @playlist.seetracks == false %>
         <div class="list-group-flush invisible pb-3" id="tracks" data-spotify-token="<%= @token %>" data-playlist-id="<%= @playlist.id %>">
-          <% Vote.where(playlist: @playlist).group(:track_id).order(count: :DESC).count.each do |track| %>
-            <%= render "track", track: Track.find(track.first)%>
+          <% @playlist.tracks.sort_by{|track1| - track1.votes_number(@playlist.id)}.each do |track| %>
+            <%= render "track", track: track %>
           <% end %>
         </div>
     <% end %>
