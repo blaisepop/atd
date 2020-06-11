@@ -17,7 +17,7 @@ class PlaylistsController < ApplicationController
         cookies.encrypted[:guest_id] = SecureRandom.uuid
         redirect_to playlist_path(@playlist.id)
       else
-        flash["alert"] = "The code you entered does not exist, please ty again."
+        flash[:alert] = "The code you entered does not exist, please ty again."
         redirect_to root_path
       end
     else
