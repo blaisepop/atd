@@ -195,6 +195,28 @@ h1 {
   display: inline-block;
 }
 
+.button3 {
+  color: #000;
+  border: 1px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 400;
+  width: 80px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 400;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.button3:hover {
+  box-shadow: 0 0 10px 0 #ff4444 inset, 0 0 20px 2px #ff4444;
+  background: #ff4444;
+}
+
 .button-1 {
   background-color: transparent;
   border: 1px solid #fee;
@@ -222,4 +244,12 @@ h1 {
 .button-padding{
   padding-left: 330px;
   padding-top: 10px;
+}
+
+.thumbs-up{
+  color: white;
+}
+
+.thumbs-up:hover {
+  color: #ff4444;
 }
