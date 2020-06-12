@@ -1,16 +1,9 @@
-  <div class="track-container pt-2" id="track-<%= track.id %>">
+  <div class="track-container" id="track-<%= track.id %>">
     <div class="song-card list-group-item list-group-item-action m-0.1 p-0">
       <div class="song-card2 song-card d-flex w-100 min-vh-25">
-        <div class="cross px-md-4">
-          <% if policy(track).remove? && @playlist.user == current_user %>
-            <%= link_to remove_playlist_track_path(@playlist, track), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fas fa-times text-dark"></i>
-            <% end %>
-          <% end %>
-        </div>
         <div class="row d-flex w-100 justify-content-between">
           <div class="col-9">
-            <h5 class="pt-1 mb-0 mt-0 font-medium"><%= track.title %></h5>
+            <h4 class="pt-1 mb-0 mt-0 font-medium"><%= track.title %></h4>
             <small class="font-small"><%= track.artist %> - <%= track.album %></small>
           </div>
           <div class="col-3 py-1 d-flex flex-row-reverse">
@@ -30,7 +23,7 @@
               </span>
             </div>
             <div class="pt-2 d-none d-sm-block">
-              <small class="px-3">
+              <small class="px-3 duration-size">
                 <% if track.duration.divmod(1000 * 60).second/1000 > 9 %>
                   <%= "#{track.duration.divmod(1000 * 60).first}:#{track.duration.divmod(1000 * 60).second/1000}"%>
                 <% else %>
