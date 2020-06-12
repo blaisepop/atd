@@ -6,6 +6,10 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to '/auth/spotify'
   end
 
+  def spotify_connect
+    @spot_logged_user = session[:spotify_hash].RSpotify::User.new(request.env['omniauth.auth']).to_hash
+  end
+
   def spotify
     @spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
     @playlist = Playlist.find(current_user.temp_playlist_id)
