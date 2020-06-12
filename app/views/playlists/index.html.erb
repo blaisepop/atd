@@ -36,6 +36,7 @@
                   <img src="https://cdn.shopify.com/s/files/1/1516/0380/products/vinyle_2984cded-e2e4-49a3-be07-6b3016eebdca_800x.png?v=1477868373" class="card-img-top" alt="...">
                   <div class="card-img-overlay">
                     <h5 class="card-title"><strong><%= playlist.name %></strong></h5>
+                    <h4> <%= playlist.date.day %>/<%= playlist.date.strftime("%m") %>/<%= playlist.date.year %></h4>
                   </div>
                 </div>
               <% end %>
