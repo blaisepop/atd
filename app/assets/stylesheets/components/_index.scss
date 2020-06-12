@@ -30,12 +30,12 @@
   }
   .font-medium {
     font-size: 18px;
-    padding-left: 10px
+    padding-left: 0px
   }
 
   .font-small {
     font-size: 10px;
-    padding-left: 10px
+    padding-left: 0px
   }
   .form-control {
     box-shadow: 0 1px 20px -10px white;
@@ -52,7 +52,6 @@
     bottom: 45px;
   }
   .playlist-name {
-    display: flex;
     left: 20px;
     font-size: 25px;
     position: relative;
@@ -69,11 +68,10 @@
   }
   .date {
     position: relative;
-    bottom: 20px;
-    left: 110px;
-
+    left: 45px;
     color: rgb(180,180,180);
     font-size: 15px;
+    top: 40px;
   }
   .switch {
     padding-top: 90px;
@@ -128,7 +126,7 @@
   .playlist-info {
     position: relative;
     bottom: 0px;
-    padding-bottom: 40px;
+    padding-bottom: 50px;
   }
   .playlist-name {
     display: block;
@@ -181,6 +179,3 @@
   box-sizing: border-box;
 }
 
-.new-name{
-  padding-left: 40px;
-}

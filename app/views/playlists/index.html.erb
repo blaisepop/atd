@@ -32,7 +32,7 @@
                   </div>
                 </div>
               <%= link_to playlist_path(playlist) do %>
-                <% if playlist.name.include? "Wedding" || "Mariage"|| "Fiancaille" || "Anniversary"%>
+                <% if playlist.name.include? ("Wedding" || "Mariage"|| "Fiancaille" || "Anniversary")%>
                   <div class="card text-white rounded all-cards1">
                     <img src="https://cdn.pixabay.com/photo/2018/05/05/14/25/silhouette-3376470_960_720.png" class="card-img-top" alt="...">
 
@@ -41,9 +41,9 @@
                       <h5> <%= playlist.date.day %>/<%= playlist.date.strftime("%m") %>/<%= playlist.date.year %></h5>
                     </div>
                   </div>
-                <% elsif playlist.name.include? "Vendredi" || "Friday"%>
+                <% elsif playlist.name.include? "Friday" || "Vendredi"%>
                   <div class="card text-white rounded all-cards2">
-                    <img src="https://pngimg.com/uploads/party/party_PNG44.png" class="card-img-top" alt="...">
+                    <img src="https://pngimage.net/wp-content/uploads/2018/06/white-people-png-6.png" class="card-img-top" alt="...">
                     <div class="card-img-overlay">
                       <h4 class="card-title text-wrap"><strong><%= playlist.name %></strong></h4>
                       <h5> <%= playlist.date.day %>/<%= playlist.date.strftime("%m") %>/<%= playlist.date.year %></h5>
