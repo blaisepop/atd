@@ -11,11 +11,6 @@
   color: white;
 }
 
-.form-control {
-  box-shadow: 0 1px 20px -10px white;
-  margin: 5px;
-}
-
 .song-card {
   color: white;
   background-color: #0a0a0a;
@@ -25,19 +20,28 @@
   border-bottom: 1px solid #6c757d;
 }
 
-.font-medium {
-  font-size: 15px;
-}
-
-.font-small {
-  font-size: 10px;
-}
-
 .plus-card {
  margin-top: 27px;
 }
 
+.duration-size{
+  font-size: 16px
+}
+
 @media (min-width: 375px) {
+  .font-medium {
+    font-size: 18px;
+    padding-left: 50px
+  }
+
+  .font-small {
+    font-size: 10px;
+    padding-left: 50px
+  }
+  .form-control {
+    box-shadow: 0 1px 20px -10px white;
+    margin: 5px;
+  }
   .Spotify {
     position: relative;
     top: 40px;
@@ -74,6 +78,19 @@
 }
 
 @media (min-width: 576px) {
+  .font-medium {
+    font-size: 20px;
+    padding-left: 50px
+  }
+
+  .font-small {
+    font-size: 15px;
+    padding-left: 50px
+  }
+  .form-control {
+    box-shadow: 0 1px 20px -10px white;
+    margin: 5px;
+  }
   .Spotify {
     position: relative;
     top: 0px;
@@ -118,4 +135,5 @@
 .new-name{
   padding-left: 44px;
 }
+
 

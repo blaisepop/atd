@@ -3,20 +3,20 @@
 
   <div class="row d-flex w-100 justify-content-between pt-4">
     <div class="playlist-name col-md-6 col-sm-12">
-      <h2 class="playlist-name text-white pl-4"><strong><%= @playlist.name %></strong></h2>
-      <p class="by-dj text-white mt-2 pl-4">by <%= @playlist.user.username %></p>
+      <h2 class="playlist-name text-white "><strong><%= @playlist.name %></strong></h2>
+      <p class="by-dj text-white mt-2 ">by <%= @playlist.user.username %></p>
     </div>
     <div class=" col-md-6 col-sm-12 d-flex align-items-end flex-column">
       <% if @playlist.user == current_user %>
       <% if @playlist.playlist_uri == nil %>
-      <p class="Spotify"> <%=link_to 'Create a Spotify Playlist', call_spotify_path(playlist_id: @playlist.id), class:"btn btn-flat btn-sm" %></p>
+      <p class="Spotify"> <%=link_to 'Create a Spotify Playlist', call_spotify_path(playlist_id: @playlist.id), class:"btn btn-flat" %></p>
       <% end %>
       <% end %>
     </div>
   </div>
   <div class="playlist-info row d-flex w-100 justify-content-between">
     <div class="date col-7">
-      <small class="pl-4"><i class="fa fa-calendar" aria-hidden="true"></i> <%= @playlist.date.day.ordinalize %> of <%= @playlist.date.strftime("%B") %> <%= @playlist.date.year %></small>
+      <small class=""><i class="fa fa-calendar" aria-hidden="true"></i> <%= @playlist.date.day.ordinalize %> of <%= @playlist.date.strftime("%B") %> <%= @playlist.date.year %></small>
     </div>
     <div class="switch col-5 d-flex flex-column align-items-end">
       <% if @playlist.user == current_user %>
