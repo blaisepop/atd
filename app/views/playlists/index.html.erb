@@ -32,31 +32,44 @@
                   </div>
                 </div>
               <%= link_to playlist_path(playlist) do %>
-                <div class="card all-cards text-white rounded">
-                  <img src="https://cdn.shopify.com/s/files/1/1516/0380/products/vinyle_2984cded-e2e4-49a3-be07-6b3016eebdca_800x.png?v=1477868373" class="card-img-top" alt="...">
-                  <div class="card-img-overlay">
-                    <h5 class="card-title"><strong><%= playlist.name %></strong></h5>
-                    <h4> <%= playlist.date.day %>/<%= playlist.date.strftime("%m") %>/<%= playlist.date.year %></h4>
+                <% if playlist.name.include? "Wedding" || "Mariage"|| "Fiancaille" || "Anniversary"%>
+                  <div class="card text-white rounded all-cards1">
+                    <img src="https://cdn.shopify.com/s/files/1/1516/0380/products/vinyle_2984cded-e2e4-49a3-be07-6b3016eebdca_800x.png?v=1477868373" class="card-img-top" alt="...">
+                    <div class="card-img-overlay">
+                      <h4 class="card-title text-wrap"><strong><%= playlist.name %></strong></h4>
+                      <h5> <%= playlist.date.day %>/<%= playlist.date.strftime("%m") %>/<%= playlist.date.year %></h5>
+                    </div>
                   </div>
-                </div>
+                <% elsif playlist.name.include? "Vendredi" || "Friday"%>
+                  <div class="card text-white rounded all-cards2">
+                    <img src="https://pngimg.com/uploads/party/party_PNG44.png" class="card-img-top" alt="...">
+                    <div class="card-img-overlay">
+                      <h4 class="card-title text-wrap"><strong><%= playlist.name %></strong></h4>
+                      <h5> <%= playlist.date.day %>/<%= playlist.date.strftime("%m") %>/<%= playlist.date.year %></h5>
+                    </div>
+                  </div>
+                <% elsif playlist.name.include? "Birthday" %>
+                  <div class="card text-white rounded all-cards3">
+                    <img src="https://images.vexels.com/media/users/3/132630/isolated/preview/3c11dd859dd0ecec5784972a33f6369b-wedding-couple-dancing-silhouette-4-by-vexels.png" class="card-img-top" alt="...">
+                    <div class="card-img-overlay">
+                      <h4 class="card-title text-wrap"><strong><%= playlist.name %></strong></h4>
+                      <h5> <%= playlist.date.day %>/<%= playlist.date.strftime("%m") %>/<%= playlist.date.year %></h5>
+                    </div>
+                  </div>
+                <% else %>
+                  <div class="card text-white rounded all-cards">
+                    <img src="https://cdn.shopify.com/s/files/1/1516/0380/products/vinyle_2984cded-e2e4-49a3-be07-6b3016eebdca_800x.png?v=1477868373" class="card-img-top" alt="...">
+                    <div class="card-img-overlay">
+                      <h4 class="card-title text-wrap"><strong><%= playlist.name %></strong></h4>
+                      <h5> <%= playlist.date.day %>/<%= playlist.date.strftime("%m") %>/<%= playlist.date.year %></h5>
+                    </div>
+                  </div>
+                <% end %>
               <% end %>
             </div>
-          <% end %>
-          </div>
-          <%= link_to playlist_path(playlist) do %>
-          <div class="card all-cards text-white rounded">
-            <img src="https://cdn.shopify.com/s/files/1/1516/0380/products/vinyle_2984cded-e2e4-49a3-be07-6b3016eebdca_800x.png?v=1477868373" class="card-img-top" alt="...">
-            <% end %>
-            <div class="card-img-overlay">
-              <h5 class="card-title"><strong><%= playlist.name %></strong></h5>
-              <h4> <%= playlist.date.day %>/<%= playlist.date.strftime("%m") %>/<%= playlist.date.year %></h4>
-            </div>
-          </div>
-        </div>
-        <% end %>
+          <%end%>
       </div>
     </div>
   </div>
 </div>
-
 
