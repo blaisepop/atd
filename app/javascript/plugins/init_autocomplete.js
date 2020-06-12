@@ -56,6 +56,7 @@ const initAutocomplete = () => {
           },
           body: JSON.stringify(data)
         });
+        location.href = `/playlists/${container.dataset.playlistId}`;
       }
 
     });
