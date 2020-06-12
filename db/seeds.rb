@@ -39,7 +39,7 @@ blaise = User.create!(
 
 puts "Creating playlist1"
 playlist = Playlist.create!(
-  name: "Party rock",
+  name: "Mimi's Birthday",
   room_code: "2020202",
   date: Date.new(2020,06,10),
   user: alex
@@ -47,7 +47,7 @@ playlist = Playlist.create!(
 puts "Creating playlist2"
 
 playlist1 = Playlist.create!(
-  name: "Oldies",
+  name: "Bob and Annie's Wedding Anniversary",
   room_code: "007007",
   date: Date.new(2020,07,12),
   user: peter
@@ -61,7 +61,7 @@ playlist2 = Playlist.create!(
 )
 
 playlist3 = Playlist.create!(
-  name: "Sing along",
+  name: "Ashley's 18th",
   room_code: "1112111",
   date: Date.new(2021,02,03),
   user: blaise
