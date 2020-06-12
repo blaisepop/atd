@@ -1,33 +1,44 @@
 <div class="container">
   <div class="logo1"><b>/<span>/</span>/<span>/</span>|<span>\</span>\<span>\</span>\</b>
     <h1 class="text-white text-center"><strong><%=current_user.username %>'s Playlists</strong></h1>
-    <div class="mt-n5 pb-2"><b>\<span>\<span>\<span>\</span>|<span>/</span>/<span>/</span>/</b></div>
+        <div class="mt-n5 pb-2"><b>\<span>\<span>\<span>\</span>|<span>/</span>/<span>/</span>/</b></div>
     <div class="mb-5 pb-5">
       <div class="row row-cols-1 row-cols-md-3">
         <div class="col">
           <%= link_to new_playlist_path do %>
           <br>
-          <div class="card all-cards plus-card text-white rounded">
-            <img src="https://cdn.shopify.com/s/files/1/1516/0380/products/vinyle_2984cded-e2e4-49a3-be07-6b3016eebdca_800x.png?v=1477868373" class="card-img-top" id="card-plus" alt="...">
-            <div class="card-img-overlay">
-              <h5 class="card-title text-white text-decoration-none"><i id="plus_button" class="fas fa-plus-circle text-white"></i> <strong>Add a new playlist</strong></h5>
+            <div class="card all-cards plus-card text-white rounded">
+              <img src="https://cdn.shopify.com/s/files/1/1516/0380/products/vinyle_2984cded-e2e4-49a3-be07-6b3016eebdca_800x.png?v=1477868373" class="card-img-top" id="card-plus" alt="...">
+              <div class="card-img-overlay">
+                  <h5 class="card-title text-white text-decoration-none"><i id="plus_button" class="fas fa-plus-circle text-white"></i> <strong>Add a new playlist</strong></h5>
+              </div>
             </div>
+            <% end %>
           </div>
-          <% end %>
-        </div>
-        <% @playlists.order(created_at: :DESC).each do |playlist| %>
-        <div class="col mt-4">
-          <div class="text-right">
-            <div class="badge badge-light badge-pill p-1 px-2 m-0 mb-1">
-              <% if policy(playlist).update? %>
-              <%= link_to edit_playlist_path(playlist) do %>
-              <i class="fas fa-edit text-warning text-decoration-none"></i>
-              <% end %>
-              <% end %>
-              <% if policy(playlist).destroy? %>
-              <%= link_to playlist_path(playlist), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fa fa-trash destroy_dose text-warning text-decoration-none"></i>
-              <% end %>
+          <% @playlists.order(created_at: :DESC).each do |playlist| %>
+            <div class="col mt-4">
+              <div class="text-right">
+                <div class="badge badge-light badge-pill p-1 px-2 m-0 mb-1">
+                  <% if policy(playlist).update? %>
+                    <%= link_to edit_playlist_path(playlist) do %>
+                        <i class="fas fa-edit text-warning text-decoration-none"></i>
+                      <% end %>
+                    <% end %>
+                    <% if policy(playlist).destroy? %>
+                      <%= link_to playlist_path(playlist), method: :delete, data: { confirm: "Are you sure?" } do %>
+                        <i class="fa fa-trash destroy_dose text-warning text-decoration-none"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              <%= link_to playlist_path(playlist) do %>
+                <div class="card all-cards text-white rounded">
+                  <img src="https://cdn.shopify.com/s/files/1/1516/0380/products/vinyle_2984cded-e2e4-49a3-be07-6b3016eebdca_800x.png?v=1477868373" class="card-img-top" alt="...">
+                  <div class="card-img-overlay">
+                    <h5 class="card-title"><strong><%= playlist.name %></strong></h5>
+                    <h4> <%= playlist.date.day %>/<%= playlist.date.strftime("%m") %>/<%= playlist.date.year %></h4>
+                  </div>
+                </div>
               <% end %>
             </div>
           <% end %>
@@ -47,4 +58,5 @@
     </div>
   </div>
 </div>
+
 
