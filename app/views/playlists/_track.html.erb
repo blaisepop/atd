@@ -1,17 +1,23 @@
   <div class="track-container" id="track-<%= track.id %>">
     <div class="song-card list-group-item list-group-item-action m-0.1 p-0">
       <div class="song-card2 song-card d-flex w-100 min-vh-25">
+        <div class="cross px-md-4 align-self-center">
+          <% if policy(track).remove? && @playlist.user == current_user %>
+            <%= link_to remove_playlist_track_path(@playlist, track), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fas fa-times text-dark"></i>
+            <% end %>
+          <% end %>
+        </div>
         <div class="row d-flex w-100 justify-content-between">
           <div class="col-9">
             <h4 class="pt-1 mb-0 mt-0 font-medium"><%= track.title %></h4>
             <small class="font-small"><%= track.artist %> - <%= track.album %></small>
           </div>
-          <div class="col-3 py-1 d-flex flex-row-reverse">
+          <div class="col-3 py-1 d-flex flex-row-reverse justify-content-start">
             <div>
               <%= render 'tracks/vote', track: track%>
             </div>
             <div class="d-none d-sm-block align-self-center d-md-flex">
-
               <% if @playlist.user == current_user %>
               <span class="d-inline badge badge-light badge-pill p-1 px-2 m-0">
                 <% if @playlist.playlist_uri != nil %>
@@ -24,7 +30,6 @@
                 <% end %>
               </span>
               <% end %>
-
             </div>
             <div class="pt-2 d-none d-sm-block">
               <small class="px-3 duration-size">

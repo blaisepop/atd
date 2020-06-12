@@ -16,10 +16,6 @@
   background-color: #0a0a0a;
 }
 
-.song-card2 {
-  border-bottom: 1px solid #6c757d;
-}
-
 .plus-card {
  margin-top: 27px;
 }
@@ -29,23 +25,27 @@
 }
 
 @media (min-width: 375px) {
+  .toggle-button{
+    font-size: 12px;
+  }
   .font-medium {
     font-size: 18px;
-    padding-left: 50px
+    padding-left: 10px
   }
 
   .font-small {
     font-size: 10px;
-    padding-left: 50px
+    padding-left: 10px
   }
   .form-control {
     box-shadow: 0 1px 20px -10px white;
     margin: 5px;
+    width: 100%;
   }
   .Spotify {
     position: relative;
     top: 40px;
-    right: 13px;
+    right: 35px;
   }
   .playlist-info {
     position: relative;
@@ -55,6 +55,7 @@
     display: flex;
     left: 20px;
     font-size: 25px;
+    position: relative;
   }
   .cross {
     padding-right: 10px;
@@ -64,32 +65,60 @@
     right: 15px;
     bottom: 4px;
     font-size:15px;
+    padding-left: 45px;
   }
   .date {
     position: relative;
     bottom: 20px;
-    left: 70px;
+    left: 110px;
+
     color: rgb(180,180,180);
     font-size: 15px;
   }
   .switch {
     padding-top: 90px;
   }
+  .song-card2 {
+    border-bottom: 1px solid #6c757d;
+    padding-top: 10px;
+  }
+  .add-room-code{
+    margin-right: 20px;
+  }
+  .cross{
+    padding-left: 10px;
+  }
+  .fa-toggle-off {
+    font-size: 10px;
+  }
+
+  .fa-toggle-on {
+    font-size: 10px;
+  }
 }
 
 @media (min-width: 576px) {
+  .toggle-button{
+    font-size: 17px;
+  }
+  .song-card2 {
+    border-bottom: 1px solid #6c757d;
+    padding-top: 0px;
+    padding-bottom: 2px;
+  }
   .font-medium {
     font-size: 20px;
-    padding-left: 50px
+    padding-left: 30px;
   }
 
   .font-small {
     font-size: 15px;
-    padding-left: 50px
+    padding-left: 30px
   }
   .form-control {
     box-shadow: 0 1px 20px -10px white;
     margin: 5px;
+    width: 100%;
   }
   .Spotify {
     position: relative;
@@ -103,6 +132,7 @@
   }
   .playlist-name {
     display: block;
+    font-size: 40px;
   }
   .cross {
     padding-right: 0px;
@@ -110,30 +140,47 @@
   .by-dj {
     position: relative;
     right: 0px;
+    left: 0px;
+    font-size: 20px;
+    padding-left: 20px;
   }
   .date {
     position: relative;
     bottom: 0px;
-    left: 0px;
+    padding-left: 20px;
     color: rgb(180,180,180);
-    left: 20px;
+    left: 38px;
   }
   .switch {
     padding-top: 20px;
   }
+  .fa-toggle-off {
+    font-size: 10px;
+  }
+
+  .fa-toggle-on {
+    font-size: 20px;
+  }
 }
 
 .name-form {
-  color: #979797;
+  color: white;
+}
+
+.name-field-new{
+  padding-right: 120px;
+  border-radius: 4px;
+  padding-top: 6px;
+  padding-bottom: 4px;
+  background-color: #e9ecef;
 }
 
 .date-picker {
-  padding-right: 109px;
-  padding-bottom: 20px;
+  padding-right: 200px;
+  margin-left: 40px;
+  box-sizing: border-box;
 }
 
 .new-name{
-  padding-left: 44px;
+  padding-left: 40px;
 }
-
-
