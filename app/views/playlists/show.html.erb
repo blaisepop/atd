@@ -18,7 +18,7 @@
       <p class="date-calendar"><i class="fa fa-calendar" aria-hidden="true"></i> <%= @playlist.date.day.ordinalize %> of <%= @playlist.date.strftime("%B") %> <%= @playlist.date.year %></p>
     </div>
     <div class="switch col-5 d-flex flex-column align-items-end">
-      <p><a href="whatsapp://send?text=<%= request.original_url %>"><i class="fab fa-whatsapp text-success"></i></a></p>
+      <p><a href="whatsapp://send?text=Here is the playlist ! <%= request.original_url %>"><i class="fab fa-whatsapp text-success"></i></a></p>
       <% if @playlist.user == current_user %>
       <% if session[:spotify_hash].nil? %>
         <p class="text-white">You are not currently logged on Spotify</p>
