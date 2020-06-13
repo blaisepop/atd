@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= favicon_link_tag "https://static.thenounproject.com/png/738239-200.png" %>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-41023689-4"></script>
+    <%= javascript_include_tag 'analytics', async: true %>
     <title>AskTheDj</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
   </head>
 
     <body>
