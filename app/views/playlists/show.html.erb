@@ -19,8 +19,10 @@
     </div>
     <div class="switch col-5 d-flex flex-column align-items-end">
       <% if @playlist.user == current_user %>
-      <% if session[:spotify_hash]["display_name"] != nil%>
-      <p class="text-white">Spotify username: <%= session[:spotify_hash]["display_name"] %></p>
+      <% if session[:spotify_hash].nil? %>
+        <p class="text-white">You are not currently logged on Spotify</p>
+      <% else %>
+        <p class="text-white">Spotify username: <%= session[:spotify_hash]["display_name"] %></p>
       <% end %>
       <div class="d-flex">
         <% if @playlist.submission == false %>
