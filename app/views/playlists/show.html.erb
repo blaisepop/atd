@@ -19,7 +19,11 @@
     </div>
     <div class="switch col-5 d-flex flex-column align-items-end">
       <% if @playlist.user == current_user %>
-      <p class="text-white">Spotify username: <%= session[:spotify_hash]["display_name"] %></p>
+      <% if session[:spotify_hash].nil? %>
+        <p class="text-white">You are not currently logged on Spotify</p>
+      <% else %>
+        <p class="text-white">Spotify username: <%= session[:spotify_hash]["display_name"] %></p>
+      <% end %>
       <div class="d-flex">
         <% if @playlist.submission == false %>
         <small class="toggle-button text-white font-weight-lighter pr-1">Submission</small><%= link_to playlist_path(@playlist, "playlist[submission]" => "true"), method: :patch, class: "badge badge-pill badge-secondary align-self-center" do %>
