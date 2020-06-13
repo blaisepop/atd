@@ -3,7 +3,7 @@ class Playlist < ApplicationRecord
   has_many :playlist_tracks, dependent: :destroy
   has_many :tracks, through: :playlist_tracks
   has_many :votes, dependent: :destroy
-  validates :name, presence: true
+  validates :name, :date, presence: true
 
   def generate_code
     room_code_number = nil

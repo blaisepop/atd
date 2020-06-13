@@ -8,6 +8,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def spotify_connect
     @spot_logged_user = session[:spotify_hash].RSpotify::User.new(request.env['omniauth.auth']).to_hash
+    @spotify_username = session[:spotify_hash]["display_name"]
   end
 
   def spotify
