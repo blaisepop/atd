@@ -65,5 +65,6 @@ class Users::SessionsController < Devise::SessionsController
     @track_uri = params[:track_uri]
     @spotify_playlist.add_tracks!([@track_uri])
     redirect_to playlist_path(current_user.temp_playlist_id)
+    flash[:alert] = "The track has been added to the playlist"
   end
 end
