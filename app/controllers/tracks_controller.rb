@@ -1,7 +1,6 @@
 class TracksController < ApplicationController
   before_action :set_track, only: %i[remove edit update show]
 
-
   def index
     @tracks = Track.all
   end
@@ -17,25 +16,18 @@ class TracksController < ApplicationController
     @playlist = Playlist.find(params[:playlist_id])
     @track = Track.new(track_params)
     @track.playlists << @playlist
-    #same as @track.playlist_tracks << PlaylistTrack.new(playlist: @playlist)
     authorize @track
-    # if @track.present?
-    #   @track.votes += 1
-    # else
-      if @track.save!
-        PlaylistChannel.broadcast_to(
-          @playlist,
-          {
-            action: 'track',
-            content: render_to_string(partial: "playlists/track", locals: { track: @track })
-          }
-        )
-        redirect_to @playlist
-      else
-        flash[:alert] = "Please enter a song title."
-        redirect_to @playlist
-      end
-    # end
+    if @track.save!
+      PlaylistChannel.broadcast_to(
+        @playlist,
+        {
+          action: 'track',
+          content: render_to_string(partial: "playlists/track", locals: { track: @track })
+        }
+      )
+    else
+      flash[:alert] = "Please enter a song title."
+    end
   end
 
   def update
