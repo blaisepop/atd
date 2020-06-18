@@ -11,7 +11,6 @@ class PlaylistsController < ApplicationController
   def search
     if params[:query].present?
       @playlist = Playlist.where(room_code: params[:query]).first
-      #authorize @playlist unless @playlist.nil?
       if @playlist
         authorize @playlist
         cookies.encrypted[:guest_id] = SecureRandom.uuid
@@ -68,12 +67,6 @@ class PlaylistsController < ApplicationController
     @playlist.destroy
     redirect_to playlists_path
   end
-
-  def topic_thumbnail
-
-
-  end
-
 
   private
 

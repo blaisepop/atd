@@ -23,7 +23,7 @@
       <% if session[:spotify_hash].nil? %>
         <p class="text-white">You are not currently logged on Spotify</p>
       <% else %>
-        <p class="text-white">Spotify username: <%= session[:spotify_hash]["display_name"] %></p>
+        <p class="text-white"><i class="fab fa-spotify"></i> <%= session[:spotify_hash]["display_name"] %></p>
       <% end %>
       <div class="d-flex">
         <% if @playlist.submission == false %>
