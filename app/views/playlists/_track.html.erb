@@ -1,38 +1,40 @@
   <div class="track-container" id="track-<%= track.id %>">
     <div class="song-card list-group-item list-group-item-action m-0.1 p-0">
       <div class="song-card2 song-card d-flex w-100 min-vh-25">
-        <div class="cross px-md-4 align-self-center">
-          <% if policy(track).remove? && @playlist.user == current_user %>
-            <%= link_to remove_playlist_track_path(@playlist, track), method: :delete, data: { confirm: "Are you sure?" } do %>
-              <i class="fas fa-times text-dark"></i>
-            <% end %>
-          <% end %>
-        </div>
         <div class="row d-flex w-100 justify-content-between">
-          <div class="col-9">
-            <h4 class="pt-1 mb-0 mt-0 font-medium"><%= track.title %></h4>
-            <small class="font-small text-wrap"><%= track.artist %> - <%= track.album %></small>
+          <div class="col-1">
+            <%= render 'tracks/vote', track: track%>
           </div>
-          <div class="col-3 py-1 d-flex flex-row-reverse justify-content-start">
-            <div>
-              <%= render 'tracks/vote', track: track%>
-            </div>
-            <div class="d-none d-sm-block align-self-center d-md-flex">
+          <div class="col-7">
+            <h4 class="pt-1 font-medium pl-0"><%= track.title %></h4>
+            <small class="font-small text-wrap pl-0"><%= track.artist %> - <%= track.album %></small>
+          </div>
+          <div class="col-4 py-1 d-flex flex-row-reverse ">
+            <div class="d-none d-sm-block align-self-start d-md-flex">
               <% if @playlist.user == current_user %>
-              <span class="d-inline badge badge-light badge-pill p-1 px-2 m-0">
+              <span class="d-inline badge badge-light badge-pill p-1 px-2 mx-1">
                 <% if @playlist.playlist_uri != nil %>
                 <%= link_to add_song_to_spotify_playlist_path(playlist_uri: @playlist.playlist_uri,track_uri: track.spotify_uri) do%>
                 <i class="fa fa-plus-square" aria-hidden="true"></i>
                 <% end %>
                 <% end %>
+              </span>
+              <span class="d-inline badge badge-light badge-pill p-1 px-2 m-0">
                 <%= link_to track.youtube_search , target: :_blank do%>
                 <i class="fab fa-youtube text-info text-decoration-none"></i>
                 <% end %>
               </span>
               <% end %>
+              <% if policy(track).remove? && @playlist.user == current_user %>
+            <div class="cross px-md-4 align-self-start">
+              <%= link_to remove_playlist_track_path(@playlist, track), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fas fa-times text-dark"></i>
+              <% end %>
             </div>
-            <div class="pt-2 d-none d-sm-block">
-              <small class="px-3 duration-size">
+            <% end %>
+            </div>
+            <div class="pt-2 d-none d-sm-block pr-2">
+              <small class="duration-size">
                 <% if track.duration.divmod(1000 * 60).second/1000 > 9 %>
                 <%= "#{track.duration.divmod(1000 * 60).first}:#{track.duration.divmod(1000 * 60).second/1000}"%>
                 <% else %>
