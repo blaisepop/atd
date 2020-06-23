@@ -4,6 +4,7 @@
     <div class="playlist-name col-md-6 col-sm-12">
       <h2 class="playlist-name text-white "><strong><%= @playlist.name %></strong></h2>
       <p class="by-dj text-white mt-2 ">by <%= @playlist.user.username %></p>
+      <p><a href="whatsapp://send?text=Here is the playlist ! <%= request.original_url %>"><i class="fab fa-whatsapp text-success"></i></a></p>
     </div>
     <div class="col-md-6 col-sm-12 d-flex align-items-end flex-column">
       <% if @playlist.user == current_user %>
@@ -18,7 +19,6 @@
       <p class="date-calendar"><i class="fa fa-calendar" aria-hidden="true"></i> <%= @playlist.date.day.ordinalize %> of <%= @playlist.date.strftime("%B") %> <%= @playlist.date.year %></p>
     </div>
     <div class="switch col-5 d-flex flex-column align-items-end">
-      <p><a href="whatsapp://send?text=Here is the playlist ! <%= request.original_url %>"><i class="fab fa-whatsapp text-success"></i></a></p>
       <% if @playlist.user == current_user %>
       <% if session[:spotify_hash].nil? %>
         <p class="text-white">You are not currently logged on Spotify</p>
@@ -52,16 +52,16 @@
   </div>
   <div class="submission">
     <% if @playlist.submission == true %>
-    <div class="px-3 visible">
+    <div class="px-2 visible">
       <%= render "tracks/form"%>
     </div>
     <% else %>
     <% if @playlist.user == current_user %>
-    <div class="px-3 visible">
+    <div class="px-2 visible">
       <%= render "tracks/form"%>
     </div>
     <% else %>
-    <div class="px-3 invisible">
+    <div class="px-2 invisible">
       <%= render "tracks/form"%>
     </div>
     <% end %>
