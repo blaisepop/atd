@@ -17,7 +17,7 @@
   <div class="playlist-info row d-flex w-100 justify-content-between">
     <div class="date col-7">
       <p class="date-calendar"><i class="fa fa-calendar" aria-hidden="true"></i> <%= @playlist.date.day.ordinalize %> of <%= @playlist.date.strftime("%B") %> <%= @playlist.date.year %></p>
-      <b>Room code: <%= @playlist.room_code %></b>
+      <p class="text-white">Room code: <%= @playlist.room_code %></p>
     </div>
     <div class="switch col-5 d-flex flex-column align-items-end">
       <% if @playlist.user == current_user %>
