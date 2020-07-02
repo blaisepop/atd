@@ -70,7 +70,7 @@ class PlaylistsController < ApplicationController
 
   private
 
-    def set_playlist
+  def set_playlist
     @playlist = Playlist.friendly.find(params[:id])
     authorize @playlist
   end
@@ -78,6 +78,5 @@ class PlaylistsController < ApplicationController
   def playlist_params
     params.require(:playlist).permit(:name, :room_code, :submission, :date, :seetracks)
   end
-
 
 end

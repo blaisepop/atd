@@ -4,27 +4,32 @@
     <div class="playlist-name col-md-6 col-sm-12">
       <h2 class="playlist-name text-white "><strong><%= @playlist.name %></strong></h2>
       <p class="by-dj text-white mt-2 ">by <%= @playlist.user.username %></p>
-      <p><a href="whatsapp://send?text=Here is the playlist ! <%= request.original_url %>"><i class="fab fa-whatsapp text-success"></i></a></p>
-    </div>
-    <div class="col-md-6 col-sm-12 d-flex align-items-end flex-column">
-      <% if @playlist.user == current_user %>
-      <% if @playlist.playlist_uri == nil %>
-        <p class="Spotify"> <%=link_to 'Create a Spotify Playlist', call_spotify_path(playlist_id: @playlist.id), class:"btn btn-flat font-weight-bold" %></p>
-      <% end %>
-      <% end %>
     </div>
   </div>
   <div class="playlist-info row d-flex w-100 justify-content-between">
     <div class="date col-7">
       <p class="date-calendar"><i class="fa fa-calendar" aria-hidden="true"></i> <%= @playlist.date.day.ordinalize %> of <%= @playlist.date.strftime("%B") %> <%= @playlist.date.year %></p>
-      <p class="text-white">Room code: <%= @playlist.room_code %></p>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Actions
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% if @playlist.user == current_user %>
+            <% if @playlist.playlist_uri == nil %>
+              <li class="dropdown-item"><%=link_to 'Create a Spotify Playlist', call_spotify_path(playlist_id: @playlist.id)%></li>
+            <% end %>
+          <% end %>
+          <a class="dropdown-item" href="whatsapp://send?text=Here is the playlist ! <%= request.original_url %>">Share on whatsapp</a>
+        </div>
+      </div>
     </div>
     <div class="switch col-5 d-flex flex-column align-items-end">
       <% if @playlist.user == current_user %>
       <% if session[:spotify_hash].nil? %>
-        <p class="text-white">You are not currently logged on Spotify</p>
+      <p class="text-white">You are not currently logged on Spotify</p>
       <% else %>
-        <p class="text-white"><i class="fab fa-spotify"></i> <%= session[:spotify_hash]["display_name"] %></p>
+      <p class="text-white"><i class="fab fa-spotify"></i> <%= session[:spotify_hash]["display_name"] %></p>
       <% end %>
       <div class="d-flex">
         <% if @playlist.submission == false %>
@@ -90,3 +95,4 @@
     <% end %>
   </div>
 </div>
+
