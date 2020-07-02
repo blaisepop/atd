@@ -20,7 +20,7 @@
               <li class="dropdown-item"><%=link_to 'Create a Spotify Playlist', call_spotify_path(playlist_id: @playlist.id)%></li>
             <% end %>
           <% end %>
-          <a class="dropdown-item" href="whatsapp://send?text=Here is the playlist ! https://ask-the-dj.herokuapp.com<%= request.original_fullpath %>">Share on whatsapp</a>
+          <a class="dropdown-item" href="whatsapp://send?text=Here is the playlist ! https://ask-the-dj.herokuapp.com/playlists/<%= @playlist.room_code %>">Share on whatsapp</a>
         </div>
       </div>
     </div>
