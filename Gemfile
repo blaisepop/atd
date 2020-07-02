@@ -25,6 +25,8 @@ gem 'pundit'
 #This is a ruby wrapper for the Spotify Web API.
 gem 'rspotify'
 
+gem 'friendly_id', '~> 5.2.4'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
