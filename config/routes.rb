@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get 'my_account', to: 'pages#my_account'
   resources :playlists do
     resources :tracks, only: [:new, :create, :edit, :update, :index] do
       member do
@@ -17,4 +18,5 @@ Rails.application.routes.draw do
     get "/spotify_connect" => "users/sessions#spotify_connect"
     get "/add_song_to_spotify_playlist" => "users/sessions#add_song_to_spotify_playlist"
   end
+
 end
