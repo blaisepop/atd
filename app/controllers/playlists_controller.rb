@@ -76,7 +76,6 @@ class PlaylistsController < ApplicationController
   end
 
   def playlist_params
-    params.require(:playlist).permit(:name, :room_code, :submission, :date, :seetracks)
+    params.require(:playlist).permit(:name, :room_code, :id, :submission, :date, :seetracks)
   end
-
 end

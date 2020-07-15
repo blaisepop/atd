@@ -38,8 +38,10 @@ class TracksController < ApplicationController
 
   def remove
     @playlist_track = PlaylistTrack.where(playlist_id: params[:playlist_id]).where(track_id: params[:id]).first
-    authorize @track
-    @playlist_track.destroy
+    if @playlist_track.present?
+      authorize @track
+      @playlist_track.destroy
+    end
     redirect_to playlist_path(params[:playlist_id])
   end
 
