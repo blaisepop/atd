@@ -25,6 +25,7 @@ class TracksController < ApplicationController
           content: render_to_string(partial: "playlists/track", locals: { track: @track })
         }
       )
+      redirect_to playlist_path(params[:playlist_id])
     else
       flash[:alert] = "Please enter a song title."
     end
@@ -33,7 +34,7 @@ class TracksController < ApplicationController
   def update
     @track.update(track_params)
     @track.save
-    redirect_to playlists_path
+    redirect_to playlists_path(params[:playlist_id])
   end
 
   def remove

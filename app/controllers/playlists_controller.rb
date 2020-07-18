@@ -71,7 +71,7 @@ class PlaylistsController < ApplicationController
   private
 
   def set_playlist
-    @playlist = Playlist.friendly.find(params[:id])
+    @playlist = Playlist.find(params[:id])
     authorize @playlist
   end
 
