@@ -4,8 +4,6 @@ class Playlist < ApplicationRecord
   has_many :tracks, through: :playlist_tracks
   has_many :votes, dependent: :destroy
   validates :name, :date, :room_code, presence: true
-  extend FriendlyId
-  friendly_id :room_code, use: :slugged
 
   def generate_code
     room_code_number = nil
