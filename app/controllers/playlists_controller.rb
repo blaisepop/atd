@@ -71,7 +71,7 @@ class PlaylistsController < ApplicationController
   private
 
   def set_playlist
-    @playlist = Playlist.find(params[:id])
+    @playlist = Playlist.find_by(room_code: params[:id])
     authorize @playlist
   end
 
