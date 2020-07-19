@@ -25,25 +25,27 @@ class TracksController < ApplicationController
           content: render_to_string(partial: "playlists/track", locals: { track: @track })
         }
       )
-      redirect_to playlist_path(params[:playlist_id])
+      redirect_to playlist_path(@playlist.room_code)
     else
       flash[:alert] = "Please enter a song title."
     end
   end
 
   def update
+    @playlist = Playlist.find(params[:playlist_id])
     @track.update(track_params)
     @track.save
-    redirect_to playlists_path(params[:playlist_id])
+    redirect_to playlist_path(@playlist.room_code)
   end
 
   def remove
+    @playlist = Playlist.find(params[:playlist_id])
     @playlist_track = PlaylistTrack.where(playlist_id: params[:playlist_id]).where(track_id: params[:id]).first
     if @playlist_track.present?
       authorize @track
       @playlist_track.destroy
     end
-    redirect_to playlist_path(params[:playlist_id])
+    redirect_to playlist_path(@playlist.room_code)
   end
 
   private
