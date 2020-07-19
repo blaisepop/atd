@@ -14,7 +14,7 @@ class PlaylistsController < ApplicationController
       if @playlist
         authorize @playlist
         cookies.encrypted[:guest_id] = SecureRandom.uuid
-        redirect_to playlist_path(@playlist.id)
+        redirect_to playlist_path(@playlist.room_code)
       else
         flash[:alert] = "The code you entered does not exist, please try again."
         redirect_to root_path
@@ -60,7 +60,7 @@ class PlaylistsController < ApplicationController
 
   def update
     @playlist.update(playlist_params)
-    redirect_to playlist_path(@playlist)
+    redirect_to playlist_path(@playlist.room_code)
   end
 
   def destroy
@@ -72,6 +72,9 @@ class PlaylistsController < ApplicationController
 
   def set_playlist
     @playlist = Playlist.find_by(room_code: params[:id])
+    if @playlist == nil
+      @playlist = Playlist.find(params[:id])
+    end
     authorize @playlist
   end
 
